@@ -1,8 +1,8 @@
 # Submission guide
 
-Before hand-in, fill the verified student names, roll numbers and actual individual contributions in `configs/student.json`. The report, presentation and viva must describe the work each student can explain. No student-specific information has been invented.
+The official RS assignment sheet lists Group 4 as Dhruva Ambhaikar (I002), Rusheel Sharma (I069), Viraj Choudhary (I012) and Shawn Mendes (I077); their names and roll numbers are already populated in `configs/student.json`. **Each member must confirm their actual individual contribution** before hand-in. Do not invent or auto-assign academic credit. The report, presentation and viva must describe work each student can explain.
 
-Changing that configuration does not update existing exports automatically. Regenerate the report with `scripts/build_report.py` after installing `requirements-artifacts.txt`, and update the editable presentation placeholders. Refresh the document/visual checks and submission archive after changing exported files.
+Changing that configuration does not update existing exports automatically. After members confirm their contributions, regenerate the report with `scripts/build_report.py` (using `requirements-artifacts.txt`) and the editable deck with `scripts/build_presentation.mjs --final` in the configured Codex presentation runtime. Run document checks, submission readiness validation and repackage the submission. The currently committed PDF, deck and ZIP still reflect the earlier placeholder state until this is done.
 
 The academic deliverables are `final_report.pdf` and `CoupledCF_presentation.pptx`. Editable report text, paper analysis, methodology, viva answers, the complete requirement checklist, the runnable/executed notebook and measured experiment evidence are in the corresponding project directories.
 
