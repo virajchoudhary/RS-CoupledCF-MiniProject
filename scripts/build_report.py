@@ -468,7 +468,7 @@ def main():
     p('A runnable notebook, source code, configurations, tests, checkpoints, result tables, figures, '
       'paper analysis, methodology, presentation, viva answers and a requirement checklist accompany '
       'this report. The editable Markdown report is generated alongside the PDF. Student names '
-      'and contribution statements must be filled with verified information before hand-in. '
+      'are populated; actual contribution statements require student confirmation before hand-in. '
       'No code in this package can verify an individual\'s academic contribution.')
     p(f'The complete model\'s NDCG@10 is {direction} than DeepCF by {abs(delta_ndcg):.4f} on the '
       'reported fixed split and training budget. ' + interpretation + ' The useful outcome is '
@@ -497,9 +497,6 @@ def main():
       'DOI: 10.1145/2827872.')
     p('[4] Research Paper Study and Partial Reproduction: Recommendation Systems. '
       'Supplied four-page assignment brief, including Parts A-C and the 10-mark rubric.')
-    p('Source page references use PDF page numbers alongside printed pagination. '
-      'Top-K Table 7 is on PDF page 11. Rating prediction Table 6 '
-      'on that page is a separate experiment and does not define this reproduction\'s Top-K settings.')
     (ROOT / 'docs/final_report.md').write_text('\n'.join(markdown), encoding='utf-8')
 
     def footer(canvas, document):

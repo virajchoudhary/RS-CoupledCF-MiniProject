@@ -1,12 +1,23 @@
 """Create an executable walkthrough without silently rerunning the full study."""
 from pathlib import Path
+import json
 import nbformat as nbf
 
 ROOT = Path(__file__).resolve().parents[1]
+student = json.loads((ROOT / 'configs/student.json').read_text(encoding='utf-8'))
+roster = '\n'.join(
+    f'| {member["name"]} | {member["roll_number"]} | {member["presentation_slides"]} |'
+    for member in student['students']
+)
 nb = nbf.v4.new_notebook()
 nb.metadata.kernelspec = {'name': 'coupledcf', 'display_name': 'CoupledCF project', 'language': 'python'}
 nb.cells = [
     nbf.v4.new_markdown_cell('# CoupledCF on MovieLens 1M\n\nThis notebook checks the complete data, exercises one real optimizer step, reads the completed experiment comparison, and recomputes a retained checkpoint. Full training is an explicit command in a separate cell. See the report for partial-reproduction boundaries. Group 4 member names and roll numbers are prefilled from the official allocation; confirm actual individual contributions in `configs/student.json`.'),
+    nbf.v4.new_markdown_cell(
+        f'## {student["group"]} presentation allocation\n\n'
+        '| Student | Roll number | Assigned slides |\n| --- | --- | --- |\n'
+        + roster + '\n\nSpeaking assignments do not certify actual academic contributions.'
+    ),
     nbf.v4.new_code_cell('''from pathlib import Path
 import os, sys, json
 ROOT = Path.cwd()

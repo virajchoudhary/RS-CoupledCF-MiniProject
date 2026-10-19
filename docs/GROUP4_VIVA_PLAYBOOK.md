@@ -179,6 +179,6 @@ In the original local project with dataset and selected checkpoints retained:
 .venv\Scripts\python.exe scripts\execute_notebook.py
 ```
 
-The repo's public ZIP omits MovieLens source data and checkpoints. To demonstrate directly, use the original local workspace; otherwise the README explains complete reproduction from official sources.
+The public repository omits MovieLens source data and checkpoints. A final submission ZIP is generated only after contribution confirmation and export review. To demonstrate directly, use the original local workspace; otherwise the README explains complete reproduction from official sources.
 
 **Before any claimed final hand-in:** confirm actual student contributions, rebuild the final PDF, PowerPoint and ZIP, inspect formatting, and perform the institutional submission. See `docs/FINAL_HANDOFF.md`.

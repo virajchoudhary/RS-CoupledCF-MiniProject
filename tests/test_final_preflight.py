@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from final_preflight import EXPECTED_ROLL_ORDER, validate_roster, validate_final
 
 
-def write_roster(tmp_path, *, missing=False, verified=False, reverse=False):
+def write_roster(tmp_path, *, missing=False, verified=False, reverse=False, confirmed=False):
     path = tmp_path / "configs"
     path.mkdir()
     members = [
@@ -24,6 +24,7 @@ def write_roster(tmp_path, *, missing=False, verified=False, reverse=False):
             "roll_number": roll,
             "contribution": ("Reviewed the project experiment results and prepared the assigned presentation"
                              if verified else "[Actual individual contribution pending student confirmation]"),
+            "contribution_confirmed": confirmed,
             "presentation_slides": slides,
             "presentation_responsibility": "Assigned presentation focus: " + short,
             "presentation_short": short,
@@ -90,7 +91,19 @@ def test_final_gate_rejects_unconfirmed_contributions_before_export_checks(tmp_p
         validate_final(tmp_path)
 
 
-def test_confirmed_contribution_text_clears_metadata_gate_without_human_approval(tmp_path):
+def test_contribution_text_alone_does_not_confirm_academic_work(tmp_path):
     write_roster(tmp_path, verified=True)
     _, _, pending = validate_roster(tmp_path)
+    assert len(pending) == 4
+
+
+def test_explicit_confirmation_and_real_text_clear_metadata_gate(tmp_path):
+    write_roster(tmp_path, verified=True, confirmed=True)
+    _, _, pending = validate_roster(tmp_path)
     assert pending == []
+
+
+def test_confirmation_does_not_accept_placeholder_contributions(tmp_path):
+    write_roster(tmp_path, confirmed=True)
+    _, _, pending = validate_roster(tmp_path)
+    assert len(pending) == 4

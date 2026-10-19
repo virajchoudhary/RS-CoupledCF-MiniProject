@@ -26,7 +26,7 @@ For speaker notes, likely questions, mathematical explanations, and a complete r
 
 ## Only human-dependent tasks
 
-1. **Each student confirms their actual individual contribution.** Replace the four bracketed `contribution` fields in `configs/student.json`. Describe work each person truly performed or reviewed and can defend in the viva. Do not infer work solely from authorship, agent logs, or the existence of a file. Do not invent names or academic credit.
+1. **Each student confirms their actual individual contribution.** Replace their bracketed `contribution` field in `configs/student.json` and set `contribution_confirmed` to `true` only after their explicit confirmation. Describe work each person truly performed or reviewed and can defend in the viva. Do not infer work solely from authorship, speaking assignments, agent logs, or the existence of a file.
 2. **The group reviews the final report and presentation.** Check that the attribution is fair and all four members can explain their assigned portions. Review the final slides visually for table wrapping, chart labels, citations and readability. Correct any discovered mistakes.
 3. **The group performs the actual institutional hand-in** in the required platform, with any student declarations or professor-specific approval.
 
@@ -41,17 +41,19 @@ The original local workspace is required: it holds the officially downloaded Mov
 ```powershell
 .venv\Scripts\python.exe scripts\final_preflight.py --roster-only
 .venv\Scripts\python.exe scripts\finalize_submission.py --preview
-# AFTER confirming actual contributions, run:
-.venv\Scripts\python.exe scripts\finalize_submission.py
+# After inspecting the rebuilt PDF and every slide, refresh the visual receipt:
+.venv\Scripts\python.exe scripts\finalize_submission.py --verify-preview
+# Only after truthful contributions are confirmed and the updated exports are reviewed:
+.venv\Scripts\python.exe scripts\finalize_submission.py --package-only
 ```
 
-The preview mode rebuilds research support docs, report, notebook and presentation, checks experimental evidence and tests, but deliberately does not produce a supposedly final ZIP. The final mode additionally verifies authenticated contributions in the report, checks slide roles and metrics, and rebuilds `deliverables/submission.zip`. Neither mode retrains the 15 model runs. Neither mode replaces the reported experiment results.
+Preview mode rebuilds research support docs, report, notebook and presentation and checks experimental evidence and tests. It archives superseded ZIP/hash/manifest files privately so an older package cannot be mistaken for the current submission. The preview verification requires a visual receipt tied to the actual export hashes. Package-only mode checks explicit contribution confirmation, matching attribution, slide roles, metrics and the current visual receipt before creating `deliverables/submission.zip`. Neither mode retrains or replaces the research results.
 
 Do not manually bypass the final preflight or copy the previous placeholder-bearing PDF, deck, or ZIP into a hand-in. If the automated finalization stops, report the exact failure and fix its cause rather than claiming PASS.
 
 ## Evidence and scope
 
-The recorded completed study contains five model variants by three seeds, 15 total runs. The mean full CoupledCF scores are HR@10 0.7937 and NDCG@10 0.5224. The DeepCF baseline scores are 0.7825 and 0.5022. Recorded checks predate these finalization edits; the newly introduced hand-in tests and rebuilding must run on the original local environment before declaring final hand-in readiness.
+The completed study contains five model variants by three seeds, 15 total runs. Mean full CoupledCF scores are HR@10 0.7937 and NDCG@10 0.5224. DeepCF baseline scores are 0.7825 and 0.5022. See the current technical audit and `deliverables/preview_status.json` for the tested source and inspected export status.
 
 This is a **partial reproduction**. The 10-epoch CPU budget, one CNN layer, side-feature projections and evaluation protocol adaptations remain explicit limitations. The project does not claim an exact paper reproduction, a controlled GPU result, a cold-start result, or a statistically significant superiority claim.
 

@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib
 import json
 import zipfile
+from uuid import uuid4
 
 from final_preflight import validate_final
 
@@ -10,11 +11,30 @@ ROOT = Path(__file__).resolve().parents[1]
 DESTINATION = ROOT / 'deliverables/submission.zip'
 
 
+def write_archive(root: Path, files: list[Path], provenance: dict, destination: Path) -> int:
+    staging = destination.with_name(destination.name + '.' + uuid4().hex + '.tmp')
+    try:
+        with zipfile.ZipFile(staging, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+            for path in sorted(set(files)):
+                archive.write(path, path.relative_to(root).as_posix())
+            archive.writestr('dataset_provenance.json', json.dumps(provenance, indent=2))
+        with zipfile.ZipFile(staging) as archive:
+            assert archive.testzip() is None
+            assert not any(name.endswith('.pt') or name.startswith('data/')
+                           for name in archive.namelist())
+            count = len(archive.namelist())
+        staging.replace(destination)
+        return count
+    finally:
+        staging.unlink(missing_ok=True)
+
+
 def main():
     # Do not distribute a supposedly final package with placeholders or stale exports.
     validate_final(ROOT)
     files = []
-    for name in ['README.md', 'requirements.txt', 'requirements-lock.txt', 'requirements-artifacts.txt',
+    for name in ['README.md', '.gitignore', '.gitattributes',
+                 'requirements.txt', 'requirements-lock.txt', 'requirements-artifacts.txt',
                  'pyproject.toml', 'decisions.tsv',
                  'Group 4_generic frame work for explicit and implicit.pdf',
                  'Research Paper Study and Partial Implementation.pdf']:
@@ -36,16 +56,10 @@ def main():
                      'virtual environment', 'private build caches', 'pilot and interrupted runs'],
         'local_checkpoints': 'The full workspace retains results/main/*/best.pt for direct evaluation.',
     }
-    with zipfile.ZipFile(DESTINATION, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
-        for path in sorted(set(files)):
-            if not path.is_file():
-                raise FileNotFoundError(path)
-            archive.write(path, path.relative_to(ROOT).as_posix())
-        archive.writestr('dataset_provenance.json', json.dumps(provenance, indent=2))
-    with zipfile.ZipFile(DESTINATION) as archive:
-        assert archive.testzip() is None
-        assert not any(name.endswith('.pt') or name.startswith('data/') for name in archive.namelist())
-        count = len(archive.namelist())
+    for path in files:
+        if not path.is_file():
+            raise FileNotFoundError(path)
+    count = write_archive(ROOT, files, provenance, DESTINATION)
     digest = hashlib.sha256(DESTINATION.read_bytes()).hexdigest()
     (ROOT / 'deliverables/submission.sha256').write_text(digest + '  submission.zip\n')
     full_artifacts = sorted(set(files) | set((ROOT / 'results/main').glob('*/best.pt')))

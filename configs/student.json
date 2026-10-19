@@ -7,6 +7,7 @@
       "name": "Dhruva Ambhaikar",
       "roll_number": "I002",
       "contribution": "[Actual individual contribution pending student confirmation]",
+      "contribution_confirmed": false,
       "presentation_slides": "1-3",
       "presentation_responsibility": "Introduction, motivation, research problem and research gap",
       "presentation_short": "Problem and research gap"
@@ -15,6 +16,7 @@
       "name": "Viraj Choudhary",
       "roll_number": "I012",
       "contribution": "[Actual individual contribution pending student confirmation]",
+      "contribution_confirmed": false,
       "presentation_slides": "4-7",
       "presentation_responsibility": "Original CoupledCF framework, coupling equations, architecture and PyTorch implementation",
       "presentation_short": "Architecture and implementation"
@@ -23,6 +25,7 @@
       "name": "Rusheel Sharma",
       "roll_number": "I069",
       "contribution": "[Actual individual contribution pending student confirmation]",
+      "contribution_confirmed": false,
       "presentation_slides": "8-12",
       "presentation_responsibility": "MovieLens 1M data, splits, negative sampling, baselines, evaluation and compute",
       "presentation_short": "Data, metrics and experiments"
@@ -31,6 +34,7 @@
       "name": "Shawn Mendes",
       "roll_number": "I077",
       "contribution": "[Actual individual contribution pending student confirmation]",
+      "contribution_confirmed": false,
       "presentation_slides": "13-16",
       "presentation_responsibility": "Published comparison, interpretation, ablation findings, limitations and conclusion",
       "presentation_short": "Analysis and conclusions"

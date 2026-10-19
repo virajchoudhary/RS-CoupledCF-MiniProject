@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 import zipfile
@@ -38,6 +39,16 @@ PLACEHOLDERS = (
     "[Group number]",
 )
 NAMESPACE = {"a": "http://schemas.openxmlformats.org/drawingml/2006/main"}
+SLIDE_TOPICS = (
+    "CoupledCF on MovieLens 1M", "The recommendation problem",
+    "Research gap and contribution", "CoupledCF in the paper",
+    "Feature inputs and representations", "The explicit coupling branch",
+    "The implemented CoupledCF scorer", "MovieLens 1M and evaluation protocol",
+    "Experimental variants and controls", "Top-N model comparison",
+    "Paired ablation differences", "Compute and model cost",
+    "Published MovieLens 1M reference", "Reading the measured comparison",
+    "Limitations and next experiment", "Group 4 presentation and viva",
+)
 
 
 def _normal(text: str) -> str:
@@ -74,7 +85,8 @@ def validate_roster(root: Path = ROOT) -> tuple[dict, list[dict], list[str]]:
     pending = []
     for member in members:
         contribution = str(member.get("contribution", "")).strip()
-        if (not contribution or "[" in contribution or "]" in contribution or
+        if (member.get("contribution_confirmed") is not True or
+                not contribution or "[" in contribution or "]" in contribution or
                 "pending" in contribution.casefold() or
                 "to be confirmed" in contribution.casefold() or len(contribution) < 12):
             pending.append(member["name"])
@@ -100,13 +112,16 @@ def _slide_text(path: Path) -> str:
         )
         _require(len(slides) == 16, "Expected the verified 16-slide deck")
         text = []
-        for name in slides:
+        for number, name in enumerate(slides):
             document = ET.fromstring(archive.read(name))
-            text.extend((element.text or "") for element in document.findall(".//a:t", NAMESPACE))
+            words = [(element.text or "") for element in document.findall(".//a:t", NAMESPACE)]
+            _require(SLIDE_TOPICS[number] in _normal(" ".join(words)),
+                     f"Slide {number + 1} topic does not match its assigned speaking range")
+            text.extend(words)
     return _normal(" ".join(text))
 
 
-def validate_exports(root: Path, members: list[dict]) -> None:
+def validate_exports(root: Path, members: list[dict], *, preview: bool = False) -> None:
     """Reject placeholders, missing roster entries, or stale experiment numbers."""
     pdf = _pdf_text(root / "deliverables/final_report.pdf")
     slides = _slide_text(root / "deliverables/CoupledCF_presentation.pptx")
@@ -125,6 +140,8 @@ def validate_exports(root: Path, members: list[dict]) -> None:
                          f"PowerPoint assigned viva role for {member['name']} is missing or stale")
         _require(indices == sorted(indices), f"{source_name} roster is not in roll-number order")
         for placeholder in PLACEHOLDERS:
+            if preview and placeholder == "[Actual individual contribution pending student confirmation]":
+                continue
             _require(placeholder not in source,
                      f"{source_name} still contains placeholder {placeholder!r}")
     with (root / "results/summary.csv").open(newline="", encoding="utf-8") as stream:
@@ -141,11 +158,26 @@ def validate_exports(root: Path, members: list[dict]) -> None:
              "The recorded 15-run experimental verification is absent or incomplete")
 
 
+def validate_visual_review(root: Path = ROOT) -> None:
+    receipt = json.loads((root / ".audit/visual_qa.json").read_text(encoding="utf-8"))
+    _require(receipt.get("status") == "PASS", "Visual inspection is incomplete")
+    for name, key in (("final_report.pdf", "pdf_sha256"),
+                      ("CoupledCF_presentation.pptx", "pptx_sha256")):
+        digest = hashlib.sha256((root / "deliverables" / name).read_bytes()).hexdigest()
+        _require(receipt.get(key) == digest, f"Visual inspection is stale for {name}")
+
+
+def validate_preview(root: Path = ROOT) -> None:
+    _, members, _ = validate_roster(root)
+    validate_exports(root, members, preview=True)
+
+
 def validate_final(root: Path = ROOT) -> None:
     """Gate used by the ZIP packager; does not substitute for experiment replay."""
     _, members, pending = validate_roster(root)
     _require(not pending, "Contributions require human confirmation: " + ", ".join(pending))
     validate_exports(root, members)
+    validate_visual_review(root)
 
 
 def main() -> None:

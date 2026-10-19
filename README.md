@@ -9,6 +9,7 @@ Use Python 3.10 or newer. Run commands from this directory. These PowerShell com
 ```powershell
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe -m pip install -r requirements-artifacts.txt
 .venv\Scripts\python.exe scripts\download_data.py
 .venv\Scripts\python.exe scripts\prepare_data.py
 .venv\Scripts\python.exe -m pytest -q
@@ -76,16 +77,23 @@ The official Group 4 names and roll numbers are prefilled in `configs/student.js
 
 Speaker assignments are now fixed in ascending roll-number order: I002 (slides 1–3), I012 (4–7), I069 (8–12), I077 (13–16). See the [Group 4 viva playbook](docs/GROUP4_VIVA_PLAYBOOK.md) and [last-minute revision sheet](docs/VIVA_LAST_MINUTE.md). Speaking assignments are plans, not automatic academic contribution credit.
 
-From the original local workspace (where licensed dataset and selected checkpoints are retained), regenerate the **preview before contribution confirmation**; perform the final build after each student confirms the actual work performed:
+From the original local workspace, regenerate the preview without retraining. Inspect the PDF and every rendered slide, then verify the inspected exports:
 
 ```powershell
 .venv\Scripts\python.exe scripts\final_preflight.py --roster-only
 .venv\Scripts\python.exe scripts\finalize_submission.py --preview
-# Only after actual contributions have been confirmed:
-.venv\Scripts\python.exe scripts\finalize_submission.py
+.venv\Scripts\python.exe scripts\finalize_submission.py --verify-preview
 ```
 
-The preview checks recorded experiments, runs tests and rebuilds documents without creating a final ZIP. Final mode regenerates the package and rejects stale attribution or metrics. It does **not** rerun the 15 training jobs. Successful execution still requires a human review of contribution accuracy and final visual/presentation quality. The ZIP packager now rejects stale PDFs, slides or placeholders.
+`--verify-preview` requires a passing `.audit/visual_qa.json` tied to the current PDF and PowerPoint hashes. The technical audit records this only after inspecting all rendered pages and slides. `deliverables/preview_status.json` identifies the checked preview. A rebuild archives superseded ZIP/hash/manifest files privately under `.audit/submission-history/`.
+
+Each student must replace their contribution placeholder with a truthful statement and explicitly set their own `contribution_confirmed` to `true`. Speaking assignments and non-placeholder prose alone do not clear that gate. After changing attribution, rebuild the preview and inspect it again. Package the confirmed, reviewed exports without changing them:
+
+```powershell
+.venv\Scripts\python.exe scripts\finalize_submission.py --package-only
+```
+
+The workflow checks existing experiments and never reruns the 15 training jobs. The packager rejects pending contributions, stale attribution, missing results, and a visual receipt for different exports. Human approval and institutional submission remain separate tasks.
 
 ## Data acknowledgment
 

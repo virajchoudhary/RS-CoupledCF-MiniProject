@@ -1,13 +1,19 @@
 """Write viva answers and final requirement mapping from measured artifacts."""
 from pathlib import Path
+import argparse
 import csv
 import json
 import hashlib
+from final_preflight import validate_preview, validate_visual_review
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--preview", action="store_true",
+                        help="Build preparation material before current exports have a visual review")
+    args = parser.parse_args()
     config = json.loads((ROOT / 'configs/main.json').read_text())
     evidence_path = ROOT / '.audit/experiment_verification.json'
     if not evidence_path.exists():
@@ -23,17 +29,21 @@ def main():
         directory = ROOT / config['output_dir'] / record['name']
         if record['result_sha256'] != digest(directory / 'result.json') or record['checkpoint_sha256'] != digest(directory / 'best.pt'):
             raise RuntimeError(f'Run artifacts changed after verification: {record["name"]}')
-    for name in ['notebook_execution.json', 'document_consistency.json', 'visual_qa.json']:
-        path = ROOT / '.audit' / name
-        if not path.exists():
-            raise RuntimeError(f'Final checklist requires {name}')
-        receipt = json.loads(path.read_text())
-        if receipt.get('status') != 'PASS':
-            raise RuntimeError(f'Final checklist requires a passing {name}')
-    visual = json.loads((ROOT / '.audit/visual_qa.json').read_text())
-    for name, key in [('final_report.pdf', 'pdf_sha256'), ('CoupledCF_presentation.pptx', 'pptx_sha256')]:
-        if digest(ROOT / 'deliverables' / name) != visual[key]:
-            raise RuntimeError(f'Visual review is stale for {name}')
+    artifacts_verified = False
+    try:
+        if args.preview:
+            raise RuntimeError('Current notebook and exports must be checked after rebuilding')
+        for name in ['notebook_execution.json', 'document_consistency.json']:
+            path = ROOT / '.audit' / name
+            if json.loads(path.read_text()).get('status') != 'PASS':
+                raise RuntimeError(f'Final checklist requires a passing {name}')
+        validate_preview(ROOT)
+        validate_visual_review(ROOT)
+        artifacts_verified = True
+    except (OSError, ValueError, RuntimeError, KeyError) as exc:
+        if not args.preview:
+            raise
+        print('Preview artifact review pending:', exc)
     with (ROOT / 'results/summary.csv').open() as stream:
         rows = {row['variant']: row for row in csv.DictReader(stream)}
     delta = float(rows['coupled']['NDCG@10_mean']) - float(rows['deepcf']['NDCG@10_mean'])
@@ -123,13 +133,15 @@ def main():
         ('U12', 'Final artifacts match actual results', 'generated report/slides; summary reaggregation and checkpoint replay; visual QA records'),
     ]
     text += '| ID | Requirement | Evidence | Coverage |\n| --- | --- | --- | --- |\n'
-    text += '\n'.join(f'| {i} | {r} | {e} | PASS |' for i, r, e in items)
+    text += '\n'.join(f'| {i} | {r} | {e} | '
+                     f'{"PENDING: verify current notebook and exports" if i in ("U11", "U12") and not artifacts_verified else "PASS"} |'
+                     for i, r, e in items)
     text += ('\n\nCUDA execution is unverified, so U4 covers a working CPU pipeline and the CUDA code path, '
              'not demonstrated GPU results. The review/Doc2Vec path, rating prediction and other datasets '
              'are analyzed rather than reproduced. A single convolution replaces the paper\'s stated two '
              'CNN layers. The assignment requests a partial reproduction, and these boundaries are visible '
              'in the report and presentation.\n\nGroup 4 names and roll numbers are now populated; actual contributions '
-             'and regenerated final exports remain pending human confirmation. The official RS.xlsx lists '
+             'and approval of regenerated final exports remain pending human confirmation. The official RS.xlsx lists '
              'Dhruva Ambhaikar (I002), Viraj Choudhary (I012), Rusheel Sharma (I069), and Shawn Mendes (I077).\n')
     (ROOT / 'docs/requirements_checklist.md').write_text(text, encoding='utf-8')
     print('Generated viva and final requirement mapping')

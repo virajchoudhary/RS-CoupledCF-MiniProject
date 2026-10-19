@@ -939,7 +939,7 @@ function makeSlide10(presentation, bundle) {
     }, { fontSize: 20, color: PALETTE.muted, alignment: "center" }, "results-description");
   }
   addText(slide, "* Single fixed-split train-only popularity baseline. ** Uniform-rank expectation. Table entries for trained models show mean +/- sample SD.", {
-    left: 64, top: 604, width: 1144, height: 56,
+    left: 64, top: 642, width: 1144, height: 56,
   }, { fontSize: 17, color: PALETTE.muted }, "results-footnote");
   if (bundle.resultsReady) {
     addProjectNotes(slide, ["results/runs.csv", "results/summary.csv", "results/references.json", "data/processed/manifest.json"],
@@ -1343,7 +1343,8 @@ async function main() {
   const renderDirectory = path.join(privateRoot, "rendered");
   let finalPath;
   if (MODE === "final") {
-    finalPath = path.join(ROOT, "deliverables", "CoupledCF_presentation.pptx");
+    finalPath = process.env.COUPLEDCF_PRESENTATION_OUTPUT
+      ?? path.join(ROOT, "deliverables", "CoupledCF_presentation.pptx");
   } else {
     let revision = 1;
     do {

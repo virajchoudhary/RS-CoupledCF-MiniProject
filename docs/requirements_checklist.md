@@ -47,4 +47,4 @@ Coverage statuses describe verified project evidence, not marks awarded by the p
 
 CUDA execution is unverified, so U4 covers a working CPU pipeline and the CUDA code path, not demonstrated GPU results. The review/Doc2Vec path, rating prediction and other datasets are analyzed rather than reproduced. A single convolution replaces the paper's stated two CNN layers. The assignment requests a partial reproduction, and these boundaries are visible in the report and presentation.
 
-Group 4 names and roll numbers are populated in configs/student.json from the official RS.xlsx allocation: Dhruva Ambhaikar (I002), Viraj Choudhary (I012), Rusheel Sharma (I069), and Shawn Mendes (I077). Actual individual contributions and refreshed final PDF/PPTX/ZIP remain PENDING until the students confirm their work.
+Group 4 names and roll numbers are now populated; actual contributions and approval of regenerated final exports remain pending human confirmation. The official RS.xlsx lists Dhruva Ambhaikar (I002), Viraj Choudhary (I012), Rusheel Sharma (I069), and Shawn Mendes (I077).

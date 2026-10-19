@@ -1,0 +1,29 @@
+{
+  "status": "PREVIEW_VERIFIED",
+  "submission_ready": false,
+  "pending_contribution_confirmation": [
+    "Dhruva Ambhaikar",
+    "Viraj Choudhary",
+    "Rusheel Sharma",
+    "Shawn Mendes"
+  ],
+  "visual_review": "PASS",
+  "artifacts": {
+    "configs/student.json": "261982dae2230dfd05c4a09542764a368237da14b7669e77c2ddd8fae752531d",
+    "configs/main.json": "224b28746a6f0f88997e56d0ab0ca174d8c4455fa0096a71f74c48db67d00dda",
+    "deliverables/final_report.pdf": "1b42669c5d2c8059eb16e36c790842a6f0a31a1d0555290b1fc27cab8fb46f20",
+    "deliverables/CoupledCF_presentation.pptx": "d163c580183044ca18e16eea3d2e5317247e9135fa1a35b767930297ef6cf603",
+    "deliverables/verification.json": "2da06f956c1d320dcc713e01cd7a3315c3daf862c59f8d7ac8556539651f14df",
+    "notebooks/CoupledCF_reproduction.ipynb": "53e73d1911a6930a1985a01849d87eb4be4b8f81ec0f900b7420415c7ebaf515",
+    "notebooks/CoupledCF_reproduction.executed.ipynb": "86d13f0197bc18953d834f3fa2c67488d4f80c84a0634fca176c9d3e04b079b0",
+    "docs/final_report.md": "e2c14f0c9f0429e1b613eb9f015c1456e00837abaf57f70b4f61b61a1665501a",
+    "docs/requirements_checklist.md": "00c8d5d78ec0641b6ed2629a6cc6baddd58171acd195f356a293b2fc98a96059",
+    "docs/viva_questions.md": "914832397794a3423fd360124df2b6c45c26c18a3620a580ae563a108c3b7aae",
+    "docs/GROUP4_VIVA_PLAYBOOK.md": "738b9c841fea6ffd256ae5c4c3dd22945795bd09980d1259d0629596fc2a6a70",
+    "docs/VIVA_LAST_MINUTE.md": "e1e388851aec873be2f4779c88ba4b714ab2c06700421930c45fdef1d584cf7c",
+    "README.md": "8c64d8cddbdb98799dfec87b727ff1e81a795d0a1e30706ee9222e1d0cdc1fe8",
+    "docs/methodology.md": "4ede79bd771e88ac7f4d5ec059bb9bb5fd40b5ed35aee0e1cd7bbc13cbc6066d",
+    "docs/FINAL_HANDOFF.md": "4cfe9d76567069ce392badf29b5bc51974b6c8b58bfffc9d7b1471ad011c2c82",
+    "deliverables/submission_guide.md": "8c92620cb17d358314f508f7ea659f8ede9c0fa0f17970ac3085e5beb8661dfa"
+  }
+}

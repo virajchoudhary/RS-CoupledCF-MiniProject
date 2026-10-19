@@ -42,6 +42,8 @@ The paper uses Keras, batch size 256 and a maximum of 100 epochs, with its best 
 
 The first three completed seed-42 variants ran sequentially. Subsequent work uses at most two independent seed processes, each with two PyTorch threads and separate output directories, to fit the available six-core CPU and observed memory use. Concurrent CPU contention and other machine activity can affect recorded wall times. The timing table must not be interpreted as a controlled speed ranking. One preliminary coupled-local run was interrupted after one epoch during a scheduler/source-fidelity correction and is retained under results/interrupted; it is excluded from every reported comparison.
 
+The DeepCF, local-only and global-only seed-42 runs retain earlier model and engine source snapshots. The later model change corrected explicit-plus-implicit fusion, which those three variants do not use. Engine changes added split validation, exclusive output creation and a CUDA determinism setting. All 15 selected checkpoints reproduce their exact recorded test ranks with the current CPU evaluation code. Each run's own source hashes identify its training implementation; the study does not claim every training snapshot is byte-identical to the final repository.
+
 ## Reproduction boundary
 
 The software reproduces the selected mathematical mechanism and a matched ablation protocol. It does not replicate every hidden layer, pooling detail, catalogue convention or validation decision from unavailable author code. The review-based Doc2Vec path, additional datasets and rating regression remain outside the experimental scope of this partial reproduction. Published Table 7 is a reference, not an expected target the results are adjusted to reach.

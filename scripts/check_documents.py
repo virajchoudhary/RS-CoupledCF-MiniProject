@@ -13,7 +13,8 @@ with (ROOT / 'results/summary.csv').open() as stream:
 pdf = PdfReader(ROOT / 'deliverables/final_report.pdf')
 pdf_text = '\n'.join(page.extract_text() or '' for page in pdf.pages)
 assert len(pdf.pages) >= 8
-assert all((page.extract_text() or '').strip() for page in pdf.pages)
+for number, page in enumerate(pdf.pages, 1):
+    assert len((page.extract_text() or '').split()) >= 40, f'Orphan or blank report page: {number}'
 with zipfile.ZipFile(ROOT / 'deliverables/CoupledCF_presentation.pptx') as archive:
     slide_names = sorted(name for name in archive.namelist() if re.fullmatch(r'ppt/slides/slide\d+\.xml', name))
     namespace = {'a': 'http://schemas.openxmlformats.org/drawingml/2006/main'}

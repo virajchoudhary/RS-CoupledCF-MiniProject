@@ -217,22 +217,22 @@ To test that hypothesis, retain the current split, candidate sets, seeds, optimi
 
 Run all commands from the project directory. Create a local virtual environment and install requirements.txt. Run scripts/download_data.py and scripts/prepare_data.py before the tests. The main experiment command is python scripts/run_experiments.py --config configs/main.json. Generate tables with python scripts/summarize_results.py. Recompute one saved model with python scripts/evaluate.py results/main/coupled_seed42. Execute the notebook with python scripts/execute_notebook.py, then run python scripts/verify_submission.py. The README gives exact PowerShell commands and explains fresh output directories.
 
-A runnable notebook, source code, configurations, tests, checkpoints, result tables, figures, paper analysis, methodology, presentation, viva answers and a requirement checklist accompany this report. The editable Markdown report is generated alongside the PDF. Student names and contribution statements must be filled with verified information before hand-in. No code in this package can verify an individual's academic contribution.
+A runnable notebook, source code, configurations, tests, checkpoints, result tables, figures, paper analysis, methodology, presentation, viva answers and a requirement checklist accompany this report. The editable Markdown report is generated alongside the PDF. Student names are populated; actual contribution statements require student confirmation before hand-in. No code in this package can verify an individual's academic contribution.
 
 The complete model's NDCG@10 is higher than DeepCF by 0.0202 on the reported fixed split and training budget. The combined model improves the measured mean ranking score under this budget. The experiment supports a benefit for this implemented fusion on this split, but does not isolate all architectural and parameter-count effects. The useful outcome is a directly implemented coupling mechanism and an auditable comparison, with explicit limits on what the experiment can establish.
 
-#### Group 4 presentation allocation (planned; not work already completed)
+### Group 4 presentation allocation (planned; not work already completed)
 
-The following roles are assigned for the final presentation and viva. They are not claims about who personally developed the code, ran experiments, or authored the report. Actual individual contributions above must be verified separately.
+The following roles are assigned for the final presentation and viva. They are separate from the actual individual contribution statements on the cover, which must describe work the students really performed or reviewed.
 
 | Roll | Student | Slides | Assigned viva focus |
 | --- | --- | --- | --- |
-| I002 | Dhruva Ambhaikar | 1–3 | Introduction, motivation, research problem and research gap |
-| I012 | Viraj Choudhary | 4–7 | Original CoupledCF framework, coupling equations, architecture and PyTorch implementation |
-| I069 | Rusheel Sharma | 8–12 | MovieLens 1M data, splits, negative sampling, baselines, evaluation and compute |
-| I077 | Shawn Mendes | 13–16 | Published comparison, interpretation, ablation findings, limitations and conclusion |
+| I002 | Dhruva Ambhaikar | 1-3 | Introduction, motivation, research problem and research gap |
+| I012 | Viraj Choudhary | 4-7 | Original CoupledCF framework, coupling equations, architecture and PyTorch implementation |
+| I069 | Rusheel Sharma | 8-12 | MovieLens 1M data, splits, negative sampling, baselines, evaluation and compute |
+| I077 | Shawn Mendes | 13-16 | Published comparison, interpretation, ablation findings, limitations and conclusion |
 
-## References
+### References
 
 [1] Q. Zhang, L. Wang, X. Meng, K. Xu and J. Hu. A Generic Framework for Learning Explicit and Implicit User-Item Couplings in Recommendation. IEEE Access, vol. 7, pp. 123944-123958, 2019. DOI: 10.1109/ACCESS.2019.2937841. Primary source is the supplied 15-page PDF, whose printed pagination is preserved in the analysis.
 
@@ -241,5 +241,3 @@ The following roles are assigned for the final presentation and viva. They are n
 [3] F. M. Harper and J. A. Konstan. The MovieLens Datasets: History and Context. ACM Transactions on Interactive Intelligent Systems, 5(4), article 19, 2015. DOI: 10.1145/2827872.
 
 [4] Research Paper Study and Partial Reproduction: Recommendation Systems. Supplied four-page assignment brief, including Parts A-C and the 10-mark rubric.
-
-Source page references use PDF page numbers alongside printed pagination. Top-K Table 7 is on PDF page 11. Rating prediction Table 6 on that page is a separate experiment and does not define this reproduction's Top-K settings.

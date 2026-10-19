@@ -18,24 +18,26 @@ These are **future speaking and viva assignments**, not assertions about actual 
 Run in the **original local workspace**, which retains the licensed MovieLens data and 15 selected checkpoints. The public GitHub repository does not contain these files.
 
 ```powershell
-git pull origin main
+git pull --ff-only origin main
 .venv\Scripts\python.exe scripts\final_preflight.py --roster-only
 .venv\Scripts\python.exe scripts\finalize_submission.py --preview
 ```
 
-Preview mode runs unit checks and experiment verification, rebuilds supporting documentation, report and editable presentation, executes the notebook, and checks exported document consistency. It **does not** produce a final submission ZIP and does not treat planned speaking roles as actual academic contributions.
+Preview mode runs unit checks and experiment verification, rebuilds supporting documentation, report and editable presentation, executes the notebook, and checks exported document consistency. It preserves superseded ZIP/hash/manifest files privately under `.audit/submission-history/`. No final submission ZIP remains at the public deliverable path.
+
+After inspecting the rebuilt PDF and all slides, record the current export hashes in the passing `.audit/visual_qa.json` inspection receipt and run `scripts/finalize_submission.py --verify-preview`. The technical audit supplies that receipt after actual inspection. This checks the current roster, roles, contribution placeholders, metric means and visual-review hashes without rebuilding.
 
 The presenter study guide is at `docs/GROUP4_VIVA_PLAYBOOK.md`, with a compact revision sheet at `docs/VIVA_LAST_MINUTE.md`. Each student should rehearse their assigned slides and be ready for questions from the other sections too.
 
 ## Final build after authentic contributions are confirmed
 
-Each member verifies the work they *actually* performed or reviewed, and the group adds accurate non-placeholder `contribution` statements to `configs/student.json`. Then run:
+Each member verifies the work they actually performed or reviewed. Add their accurate `contribution` statement to `configs/student.json` and set their `contribution_confirmed` field to `true` only after their explicit confirmation. Rebuild a preview with the updated attribution, inspect it, refresh the visual receipt and verify that preview. Then package those exact reviewed exports:
 
 ```powershell
-.venv\Scripts\python.exe scripts\finalize_submission.py
+.venv\Scripts\python.exe scripts\finalize_submission.py --package-only
 ```
 
-Final mode runs tests, rechecks the existing experimental evidence, generates PDF/PPTX/notebook, validates the four-person order and attribution, cross-checks the metric means, writes the verification receipt and rebuilds `deliverables/submission.zip`. It does **not** retrain the 15 completed experiments. If the tool stops, investigate the exact blocker and do not claim submission readiness.
+The packaging step validates the four-person order, explicit contribution confirmation, matching attribution and metric means, and the visual receipt for the actual PDF/PPTX. It rebuilds `deliverables/submission.zip` without changing the reviewed exports or retraining. If the tool stops, investigate the exact blocker and do not claim submission readiness.
 
 ## Human approval and actual hand-in
 
