@@ -1204,18 +1204,19 @@ function safeText(value, fallback) {
 }
 
 function makeSlide16(presentation, bundle, bulletHelper) {
-  const slide = addTitle(presentation, presentation.slides.add(), "Project team and viva", "Names and contributions stay editable until the team verifies them");
+  const slide = addTitle(presentation, presentation.slides.add(), "Group 4 presentation and viva", "Assigned speaking roles, not claims of completed individual work");
   const students = Array.isArray(bundle.student?.students) ? bundle.student.students : [];
-  const rows = students.length ? students : [
-    { name: "[Student name]", roll_number: "[Roll number]", contribution: "[Describe actual individual contribution]" },
-    { name: "[Student name]", roll_number: "[Roll number]", contribution: "[Describe actual individual contribution]" },
-  ];
+  const rows = students.length
+    ? [...students].sort((a, b) => String(a.roll_number).localeCompare(String(b.roll_number)))
+    : [
+      { name: "[Student name]", roll_number: "[Roll number]", presentation_slides: "TBD", presentation_short: "Role to assign" },
+    ];
   const table = [
-    ["Student", "Roll number", "Individual contribution"],
+    ["Student", "Roll number", "Assigned slides and topic"],
     ...rows.map((student) => [
       safeText(student.name, "[Student name]"),
       safeText(student.roll_number, "[Roll number]"),
-      safeText(student.contribution, "[Describe actual individual contribution]"),
+      `Slides ${safeText(student.presentation_slides, "TBD")}: ${safeText(student.presentation_short, "Role to assign")}`,
     ]),
   ];
   // Four assigned group members plus the header must fit before the viva section.
@@ -1237,8 +1238,8 @@ function makeSlide16(presentation, bundle, bulletHelper) {
     spaceAfterPoints: 4,
     name: "viva-prompts",
   });
-  addProjectNotes(slide, ["configs/student.json", "docs/methodology.md", "sources/assignment.txt"],
-    "Confirm each student's name, roll number and actual individual contribution before submission. The prompts are preparation questions, not claims about assigned contributions.");
+  addProjectNotes(slide, ["configs/student.json", "docs/methodology.md", "docs/GROUP4_VIVA_PLAYBOOK.md"],
+    "Students appear in ascending roll-number order. Speaker assignments designate what to study and present; they do not certify that the students performed the model research, development, experiments or writing. Real contributions are recorded separately in the report after verification.");
 }
 
 let APPLY_CHART_FONT = () => {};
