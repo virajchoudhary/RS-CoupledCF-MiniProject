@@ -1,6 +1,6 @@
 # Requirement to deliverable checklist
 
-Coverage statuses describe verified project evidence, not marks awarded by the professor. The assignment rubric appears on page 4 of the supplied brief. The final verifier receipt is `.audit/verification.json`. Student identities and real contributions require human completion.
+Coverage statuses describe verified project evidence, not marks awarded by the professor. The assignment rubric appears on page 4 of the supplied brief. The final verifier receipt is `.audit/verification.json`. Group 4 identities are populated from the official allocation sheet; actual individual contributions require human confirmation.
 
 | Rubric | Component | Marks available | Evidence | Coverage |
 | --- | --- | --- | --- | --- |
@@ -9,7 +9,7 @@ Coverage statuses describe verified project evidence, not marks awarded by the p
 | 3 | Implementation of selected technique | 2.5 | src/coupledcf/models.py; tests/test_models.py; selected checkpoints | PASS |
 | 4 | Experimental evaluation and comparison | 2.0 | 15 completed runs; results/summary.csv; ablation.csv; prediction replay | PASS |
 | 5 | Critical analysis and proposed improvement | 1.5 | final_report critical analysis; hypotheses distinguished from measured findings | PASS |
-| 6 | Report quality presentation and individual contribution | 1.0 | final_report PDF; editable PPTX; viva; configs/student.json | PARTIAL: human identity and contributions pending |
+| 6 | Report quality presentation and individual contribution | 1.0 | final_report PDF; editable PPTX; viva; configs/student.json | PARTIAL: actual individual contributions require student confirmation |
 
 | ID | Requirement | Evidence | Coverage |
 | --- | --- | --- | --- |
@@ -47,4 +47,4 @@ Coverage statuses describe verified project evidence, not marks awarded by the p
 
 CUDA execution is unverified, so U4 covers a working CPU pipeline and the CUDA code path, not demonstrated GPU results. The review/Doc2Vec path, rating prediction and other datasets are analyzed rather than reproduced. A single convolution replaces the paper's stated two CNN layers. The assignment requests a partial reproduction, and these boundaries are visible in the report and presentation.
 
-Names, roll numbers and actual individual contributions remain PENDING in configs/student.json and the final artifacts. No RS.xlsx was present; the assigned paper was explicitly supplied, so the allocation sheet was not needed.
+Group 4 names and roll numbers are populated in configs/student.json from the official RS.xlsx allocation: Dhruva Ambhaikar (I002), Rusheel Sharma (I069), Viraj Choudhary (I012), and Shawn Mendes (I077). Actual individual contributions and refreshed final PDF/PPTX/ZIP remain PENDING until the students confirm their work.

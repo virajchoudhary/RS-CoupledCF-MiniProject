@@ -69,7 +69,7 @@ def main():
         ('What compute is needed?', 'The completed study uses CPU PyTorch with two threads. CUDA is supported in the pipeline when available but was not executed. Actual parameter counts, run times and sampled process RSS are saved for every run. These timings are observations, not controlled hardware speedup comparisons.'),
         ('What improvement is proposed?', 'Field-aware cross attention could model named demographic fields and genre tokens without assuming local neighborhoods in arbitrary embedding coordinates. A parameter-matched evaluation with the same split/seeds and additional cold-start protocols would test the hypothesis. It is not a measured improvement.'),
         ('How can another person reproduce a reported number?', 'Download and verify the official archive, prepare the split, create the documented environment, then run the fixed config or evaluate a retained checkpoint. Hashes, source snapshots, configuration, histories and per-user ranks identify every completed result.'),
-        ('What did each student contribute?', 'Replace the placeholders in configs/student.json with the actual names, roll numbers and work each person can explain and defend. Do not invent individual contributions or claim experimental work that was not performed.'),
+        ('What did each student contribute?', 'Group 4 names and roll numbers are prefilled from the official RS allocation. Each student must confirm their actual contribution in configs/student.json and be able to explain that work. Never invent academic contributions.'),
     ]
     text = '# Viva questions and answers\n\n'
     for index, (question, answer) in enumerate(qa, 1):
@@ -81,12 +81,12 @@ def main():
         ('3', 'Implementation of selected technique', '2.5', 'src/coupledcf/models.py; tests/test_models.py; selected checkpoints', 'PASS'),
         ('4', 'Experimental evaluation and comparison', '2.0', f'{expected_runs} completed runs; results/summary.csv; ablation.csv; prediction replay', 'PASS'),
         ('5', 'Critical analysis and proposed improvement', '1.5', 'final_report critical analysis; hypotheses distinguished from measured findings', 'PASS'),
-        ('6', 'Report quality presentation and individual contribution', '1.0', 'final_report PDF; editable PPTX; viva; configs/student.json', 'PARTIAL: human identity and contributions pending'),
+        ('6', 'Report quality presentation and individual contribution', '1.0', 'final_report PDF; editable PPTX; viva; configs/student.json', 'PARTIAL: actual individual contributions require student confirmation'),
     ]
     text = '# Requirement to deliverable checklist\n\n'
     text += ('Coverage statuses describe verified project evidence, not marks awarded by the professor. '
              'The assignment rubric appears on page 4 of the supplied brief. The final verifier receipt is '
-             '`.audit/verification.json`. Student identities and real contributions require human completion.\n\n')
+             '`.audit/verification.json`. Group 4 identities are populated from the official allocation sheet; actual individual contributions require human confirmation.\n\n')
     text += '| Rubric | Component | Marks available | Evidence | Coverage |\n| --- | --- | --- | --- | --- |\n'
     text += '\n'.join('| ' + ' | '.join(row) + ' |' for row in rubric) + '\n\n'
     items = [
@@ -128,9 +128,9 @@ def main():
              'not demonstrated GPU results. The review/Doc2Vec path, rating prediction and other datasets '
              'are analyzed rather than reproduced. A single convolution replaces the paper\'s stated two '
              'CNN layers. The assignment requests a partial reproduction, and these boundaries are visible '
-             'in the report and presentation.\n\nNames, roll numbers and actual individual contributions '
-             'remain PENDING in configs/student.json and the final artifacts. No RS.xlsx was present; '
-             'the assigned paper was explicitly supplied, so the allocation sheet was not needed.\n')
+             'in the report and presentation.\n\nGroup 4 names and roll numbers are now populated; actual contributions '
+             'and regenerated final exports remain pending human confirmation. The official RS.xlsx lists '
+             'Dhruva Ambhaikar (I002), Rusheel Sharma (I069), Viraj Choudhary (I012), and Shawn Mendes (I077).\n')
     (ROOT / 'docs/requirements_checklist.md').write_text(text, encoding='utf-8')
     print('Generated viva and final requirement mapping')
 

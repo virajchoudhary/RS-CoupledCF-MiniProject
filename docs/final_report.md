@@ -2,12 +2,14 @@
 
 Research Paper Study and Partial Reproduction
 
-Recommendation Systems. [Institution]. [Group number].
+Recommendation Systems. SVKM's NMIMS MPSTME, Mumbai. Group 4.
 
 | Student | Roll number | Actual contribution |
 | --- | --- | --- |
-| [Student name] | [Roll number] | [Describe actual individual contribution] |
-| [Student name] | [Roll number] | [Describe actual individual contribution] |
+| Dhruva Ambhaikar | I002 | [Actual individual contribution pending student confirmation] |
+| Rusheel Sharma | I069 | [Actual individual contribution pending student confirmation] |
+| Viraj Choudhary | I012 | [Actual individual contribution pending student confirmation] |
+| Shawn Mendes | I077 | [Actual individual contribution pending student confirmation] |
 
 ### Abstract
 
@@ -15,7 +17,7 @@ This project studies the attribute-based Top-N recommendation mechanism of Zhang
 
 The complete model achieves mean HR@10 0.7937 and NDCG@10 0.5224. Its NDCG@10 is 0.0202 higher than DeepCF. The combined model improves the measured mean ranking score under this budget. The experiment supports a benefit for this implemented fusion on this split, but does not isolate all architectural and parameter-count effects.
 
-This is a partial reproduction of the mathematical mechanism, not a claim of exact numerical replication. The feature projection, catalogue convention, validation holdout and CPU training budget are explicit adaptations. Human student identities and individual contributions remain editable placeholders.
+This is a partial reproduction of the mathematical mechanism, not a claim of exact numerical replication. The feature projection, catalogue convention, validation holdout and CPU training budget are explicit adaptations. The group roster comes from the assigned RS allocation sheet; actual individual contribution statements must be confirmed by the students.
 
 ### Scope and evidence
 

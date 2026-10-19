@@ -1,9 +1,27 @@
 {
   "course": "Recommendation Systems",
-  "institution": "[Institution]",
-  "group": "[Group number]",
+  "institution": "SVKM's NMIMS MPSTME, Mumbai",
+  "group": "Group 4",
   "students": [
-    {"name": "[Student name]", "roll_number": "[Roll number]", "contribution": "[Describe actual individual contribution]"},
-    {"name": "[Student name]", "roll_number": "[Roll number]", "contribution": "[Describe actual individual contribution]"}
+    {
+      "name": "Dhruva Ambhaikar",
+      "roll_number": "I002",
+      "contribution": "[Actual individual contribution pending student confirmation]"
+    },
+    {
+      "name": "Rusheel Sharma",
+      "roll_number": "I069",
+      "contribution": "[Actual individual contribution pending student confirmation]"
+    },
+    {
+      "name": "Viraj Choudhary",
+      "roll_number": "I012",
+      "contribution": "[Actual individual contribution pending student confirmation]"
+    },
+    {
+      "name": "Shawn Mendes",
+      "roll_number": "I077",
+      "contribution": "[Actual individual contribution pending student confirmation]"
+    }
   ]
 }
