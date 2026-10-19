@@ -70,18 +70,22 @@ The local split archive contains ID maps, feature encodings, the observed mask a
 
 This project evaluates warm users on one random split of MovieLens 1M. It does not establish true cold-start performance, temporal deployment quality, or generalization to other datasets. The review-text/Doc2Vec path, rating prediction and the paper's other datasets are analyzed rather than reproduced. One convolution replaces the paper's stated two CNN layers. The reduced epoch budget, feature projections, pooling choices and larger batch size are also documented adaptations. The experiments test whether the implemented explicit coupling improves this baseline under this budget. They do not certify an exact numerical reproduction of the paper.
 
-The official Group 4 names and roll numbers are prefilled in `configs/student.json` from the supplied RS allocation. Each member must confirm their **actual individual contribution** there before submission. Regenerate and verify the exported report, slides and ZIP after confirming those statements; see `deliverables/submission_guide.md`. Do not use the currently committed placeholder-bearing exports as the personalized final hand-in. See [Group 4 final handoff](docs/FINAL_HANDOFF.md) and the single-command finalization below.
+The official Group 4 names and roll numbers are prefilled in `configs/student.json` from the supplied RS allocation. Each member must confirm their **actual individual contribution** there before submission. Regenerate and verify the exported report, slides and ZIP after confirming those statements; see `deliverables/submission_guide.md`. Do not use previously published placeholder-bearing exports as the personalized final hand-in. See [Group 4 final handoff](docs/FINAL_HANDOFF.md) and the single-command finalization below.
 
 ## One-command final hand-in build
 
-After every group member confirms the **actual work they performed** in `configs/student.json`, run from the original local workspace (where licensed dataset and selected checkpoints are retained):
+Speaker assignments are now fixed in ascending roll-number order: I002 (slides 1–3), I012 (4–7), I069 (8–12), I077 (13–16). See [the Group 4 viva playbook](docs/GROUP4_VIVA_PLAYBOOK.md). Speaking assignments are plans, not automatic academic contribution credit.
+
+From the original local workspace (where licensed dataset and selected checkpoints are retained), regenerate the **preview before contribution confirmation**; perform the final build after each student confirms the actual work performed:
 
 ```powershell
 .venv\Scripts\python.exe scripts\final_preflight.py --roster-only
+.venv\Scripts\python.exe scripts\finalize_submission.py --preview
+# Only after actual contributions have been confirmed:
 .venv\Scripts\python.exe scripts\finalize_submission.py
 ```
 
-This rechecks the recorded experiments, runs tests, regenerates the report, editable presentation, notebook and ZIP, and rejects stale attribution or metrics. It does **not** rerun the 15 training jobs. Successful execution still requires a human review of contribution accuracy and final visual/presentation quality. The ZIP packager now rejects stale PDFs, slides or placeholders.
+The preview checks recorded experiments, runs tests and rebuilds documents without creating a final ZIP. Final mode regenerates the package and rejects stale attribution or metrics. It does **not** rerun the 15 training jobs. Successful execution still requires a human review of contribution accuracy and final visual/presentation quality. The ZIP packager now rejects stale PDFs, slides or placeholders.
 
 ## Data acknowledgment
 
