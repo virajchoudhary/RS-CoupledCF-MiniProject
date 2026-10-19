@@ -130,7 +130,7 @@ def main():
       f'{direction} than DeepCF. ' + interpretation)
     p('This is a partial reproduction of the mathematical mechanism, not a claim of exact numerical '
       'replication. The feature projection, catalogue convention, validation holdout and CPU training budget '
-      'are explicit adaptations. Human student identities and individual contributions remain editable placeholders.')
+      'are explicit adaptations. The group roster comes from the assigned RS allocation sheet; actual individual contribution statements must be confirmed by the students.')
     heading('Scope and evidence', 2)
     p('Parts A and B analyze the complete paper. Part C reproduces the attribute-based Top-N component on '
       'MovieLens 1M. All results below come from completed run records, selected checkpoints and per-user ranks. '
