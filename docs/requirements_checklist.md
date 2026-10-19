@@ -31,7 +31,7 @@ Coverage statuses describe verified project evidence, not marks awarded by the p
 | S1 | Python code requirements and README | src/; scripts/; requirements.txt; README.md | PASS |
 | S2 | Jupyter notebook or Python files | source and executed CoupledCF_reproduction notebooks | PASS |
 | S3 | Real measured results | results/main/; summary.csv; runs.csv; figures/ | PASS |
-| S4 | Presentation and viva | deliverables/CoupledCF_presentation.pptx; docs/viva_questions.md; docs/GROUP4_VIVA_PLAYBOOK.md | PASS |
+| S4 | Presentation and viva | deliverables/CoupledCF_presentation.pptx; docs/viva_questions.md; docs/GROUP4_VIVA_PLAYBOOK.md; docs/VIVA_LAST_MINUTE.md | PASS |
 | U1 | Read both PDFs including equations tables and diagrams | paper_analysis source page references; sources/assignment.txt; rendered source inspection | PASS |
 | U2 | Explicit implicit local/global DeepCF and full architecture | paper_analysis; methodology; implemented variants | PASS |
 | U3 | Deterministic encoding sampling split and leakage checks | data.py; manifest.json; tests/test_data.py | PASS |
