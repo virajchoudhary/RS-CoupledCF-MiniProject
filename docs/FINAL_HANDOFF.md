@@ -22,7 +22,7 @@ Course: Recommendation Systems. Group: 4. Institution: SVKM's NMIMS MPSTME, Mumb
 | I069 | Rusheel Sharma | 8–12 | Data, training, metrics and experiments |
 | I077 | Shawn Mendes | 13–16 | Published comparison, ablations, limitations and conclusion |
 
-For speaker notes, likely questions, mathematical explanations, and a complete rehearsal runbook, read [GROUP4_VIVA_PLAYBOOK.md](GROUP4_VIVA_PLAYBOOK.md).
+For speaker notes, likely questions, mathematical explanations, and a complete rehearsal runbook, read [GROUP4_VIVA_PLAYBOOK.md](GROUP4_VIVA_PLAYBOOK.md) and [VIVA_LAST_MINUTE.md](VIVA_LAST_MINUTE.md).
 
 ## Only human-dependent tasks
 
