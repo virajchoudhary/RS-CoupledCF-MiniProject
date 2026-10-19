@@ -24,6 +24,10 @@ jobs:
         run: python -m pip install --index-url https://download.pytorch.org/whl/cpu "torch>=2.2,<3"
       - name: Install project dependencies
         run: python -m pip install -r requirements.txt
+      - name: Check Python and presentation builder syntax
+        run: |
+          python -m compileall -q scripts src tests
+          node --check scripts/build_presentation.mjs
       - name: Run unit tests (without downloading licensed MovieLens data)
         run: python -m pytest -q
       - name: Verify official assignment group roster
