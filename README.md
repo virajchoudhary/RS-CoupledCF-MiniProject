@@ -74,7 +74,7 @@ The official Group 4 names and roll numbers are prefilled in `configs/student.js
 
 ## One-command final hand-in build
 
-Speaker assignments are now fixed in ascending roll-number order: I002 (slides 1–3), I012 (4–7), I069 (8–12), I077 (13–16). See [the Group 4 viva playbook](docs/GROUP4_VIVA_PLAYBOOK.md). Speaking assignments are plans, not automatic academic contribution credit.
+Speaker assignments are now fixed in ascending roll-number order: I002 (slides 1–3), I012 (4–7), I069 (8–12), I077 (13–16). See the [Group 4 viva playbook](docs/GROUP4_VIVA_PLAYBOOK.md) and [last-minute revision sheet](docs/VIVA_LAST_MINUTE.md). Speaking assignments are plans, not automatic academic contribution credit.
 
 From the original local workspace (where licensed dataset and selected checkpoints are retained), regenerate the **preview before contribution confirmation**; perform the final build after each student confirms the actual work performed:
 
