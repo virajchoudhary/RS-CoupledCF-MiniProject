@@ -4,11 +4,15 @@ import hashlib
 import json
 import zipfile
 
+from final_preflight import validate_final
+
 ROOT = Path(__file__).resolve().parents[1]
 DESTINATION = ROOT / 'deliverables/submission.zip'
 
 
 def main():
+    # Do not distribute a supposedly final package with placeholders or stale exports.
+    validate_final(ROOT)
     files = []
     for name in ['README.md', 'requirements.txt', 'requirements-lock.txt', 'requirements-artifacts.txt',
                  'pyproject.toml', 'decisions.tsv',
