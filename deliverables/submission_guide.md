@@ -25,7 +25,7 @@ git pull origin main
 
 Preview mode runs unit checks and experiment verification, rebuilds supporting documentation, report and editable presentation, executes the notebook, and checks exported document consistency. It **does not** produce a final submission ZIP and does not treat planned speaking roles as actual academic contributions.
 
-The presenter study guide is at `docs/GROUP4_VIVA_PLAYBOOK.md`. Each student should rehearse their assigned slides and be ready for questions from the other sections too.
+The presenter study guide is at `docs/GROUP4_VIVA_PLAYBOOK.md`, with a compact revision sheet at `docs/VIVA_LAST_MINUTE.md`. Each student should rehearse their assigned slides and be ready for questions from the other sections too.
 
 ## Final build after authentic contributions are confirmed
 
