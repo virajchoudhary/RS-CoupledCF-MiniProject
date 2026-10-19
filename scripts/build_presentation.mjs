@@ -1218,11 +1218,13 @@ function makeSlide16(presentation, bundle, bulletHelper) {
       safeText(student.contribution, "[Describe actual individual contribution]"),
     ]),
   ];
-  addNativeTable(slide, table, { left: 64, top: 194, width: 1152, height: 204 }, {
+  // Four assigned group members plus the header must fit before the viva section.
+  const teamTableHeight = 220;
+  addNativeTable(slide, table, { left: 64, top: 194, width: 1152, height: teamTableHeight }, {
     columnWidths: [300, 220, 632],
-    fontSize: 18,
+    fontSize: table.length > 4 ? 16 : 18,
     boldFirstColumn: true,
-    rowHeights: Array(table.length).fill(204 / table.length),
+    rowHeights: Array(table.length).fill(teamTableHeight / table.length),
   });
   heading(slide, "Viva prompts", 64, 438, 300, PALETTE.blue);
   addBullets(slide, [
