@@ -70,7 +70,7 @@ The local split archive contains ID maps, feature encodings, the observed mask a
 
 This project evaluates warm users on one random split of MovieLens 1M. It does not establish true cold-start performance, temporal deployment quality, or generalization to other datasets. The review-text/Doc2Vec path, rating prediction and the paper's other datasets are analyzed rather than reproduced. One convolution replaces the paper's stated two CNN layers. The reduced epoch budget, feature projections, pooling choices and larger batch size are also documented adaptations. The experiments test whether the implemented explicit coupling improves this baseline under this budget. They do not certify an exact numerical reproduction of the paper.
 
-Fill student names, roll numbers and actual contributions in `configs/student.json` before submitting. Review the report, code and contribution records before hand-in.
+The official Group 4 names and roll numbers are prefilled in `configs/student.json` from the supplied RS allocation. Each member must confirm their **actual individual contribution** there before submission. Regenerate and verify the exported report, slides and ZIP after confirming those statements; see `deliverables/submission_guide.md`. Do not use the currently committed placeholder-bearing exports as the personalized final hand-in.
 
 ## Data acknowledgment
 
