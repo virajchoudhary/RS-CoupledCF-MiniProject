@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 nb = nbf.v4.new_notebook()
 nb.metadata.kernelspec = {'name': 'coupledcf', 'display_name': 'CoupledCF project', 'language': 'python'}
 nb.cells = [
-    nbf.v4.new_markdown_cell('# CoupledCF on MovieLens 1M\n\nThis notebook checks the complete data, exercises one real optimizer step, reads the completed experiment comparison, and recomputes a retained checkpoint. Full training is an explicit command in a separate cell. See the report for partial-reproduction boundaries. Fill names and actual contributions in `configs/student.json`.'),
+    nbf.v4.new_markdown_cell('# CoupledCF on MovieLens 1M\n\nThis notebook checks the complete data, exercises one real optimizer step, reads the completed experiment comparison, and recomputes a retained checkpoint. Full training is an explicit command in a separate cell. See the report for partial-reproduction boundaries. Group 4 member names and roll numbers are prefilled from the official allocation; confirm actual individual contributions in `configs/student.json`.'),
     nbf.v4.new_code_cell('''from pathlib import Path
 import os, sys, json
 ROOT = Path.cwd()
