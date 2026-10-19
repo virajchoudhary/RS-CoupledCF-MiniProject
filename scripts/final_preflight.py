@@ -18,9 +18,16 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_GROUP = "Group 4"
 EXPECTED_STUDENTS = {
     ("Dhruva Ambhaikar", "I002"),
-    ("Rusheel Sharma", "I069"),
     ("Viraj Choudhary", "I012"),
+    ("Rusheel Sharma", "I069"),
     ("Shawn Mendes", "I077"),
+}
+EXPECTED_ROLL_ORDER = ("I002", "I012", "I069", "I077")
+EXPECTED_SLIDE_SEGMENTS = {
+    "I002": "1-3",
+    "I012": "4-7",
+    "I069": "8-12",
+    "I077": "13-16",
 }
 PLACEHOLDERS = (
     "[Student name]",
@@ -55,6 +62,15 @@ def validate_roster(root: Path = ROOT) -> tuple[dict, list[dict], list[str]]:
     actual = [(member.get("name"), member.get("roll_number")) for member in members]
     _require(set(actual) == EXPECTED_STUDENTS and len(actual) == len(set(actual)),
              "Student identities do not match the supplied official RS.xlsx Group 4 allocation")
+    _require(tuple(member["roll_number"] for member in members) == EXPECTED_ROLL_ORDER,
+             "Student roster must be in ascending roll-number order: I002, I012, I069, I077")
+    for member in members:
+        _require(member.get("presentation_slides") ==
+                 EXPECTED_SLIDE_SEGMENTS[member["roll_number"]],
+                 f"Missing or inaccurate assigned slide range for {member['name']}")
+        _require(bool(str(member.get("presentation_responsibility", "")).strip()) and
+                 bool(str(member.get("presentation_short", "")).strip()),
+                 f"Missing non-credit viva responsibilities for {member['name']}")
     pending = []
     for member in members:
         contribution = str(member.get("contribution", "")).strip()
@@ -95,11 +111,19 @@ def validate_exports(root: Path, members: list[dict]) -> None:
     pdf = _pdf_text(root / "deliverables/final_report.pdf")
     slides = _slide_text(root / "deliverables/CoupledCF_presentation.pptx")
     for source_name, source in (("PDF", pdf), ("PowerPoint", slides)):
+        indices = []
         for member in members:
             _require(member["name"] in source and member["roll_number"] in source,
                      f"{source_name} missing {member['name']} ({member['roll_number']}); regenerate it")
-            _require(_normal(member["contribution"]) in source,
-                     f"{source_name} contribution for {member['name']} is missing or stale")
+            indices.append(source.index(member["roll_number"]))
+            if source_name == "PDF":
+                _require(_normal(member["contribution"]) in source,
+                         f"PDF contribution for {member['name']} is missing or stale")
+            else:
+                _require(member["presentation_short"] in source and
+                         member["presentation_slides"] in source,
+                         f"PowerPoint assigned viva role for {member['name']} is missing or stale")
+        _require(indices == sorted(indices), f"{source_name} roster is not in roll-number order")
         for placeholder in PLACEHOLDERS:
             _require(placeholder not in source,
                      f"{source_name} still contains placeholder {placeholder!r}")
