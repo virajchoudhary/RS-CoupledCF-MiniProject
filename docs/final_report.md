@@ -7,8 +7,8 @@ Recommendation Systems. SVKM's NMIMS MPSTME, Mumbai. Group 4.
 | Student | Roll number | Actual contribution |
 | --- | --- | --- |
 | Dhruva Ambhaikar | I002 | [Actual individual contribution pending student confirmation] |
-| Rusheel Sharma | I069 | [Actual individual contribution pending student confirmation] |
 | Viraj Choudhary | I012 | [Actual individual contribution pending student confirmation] |
+| Rusheel Sharma | I069 | [Actual individual contribution pending student confirmation] |
 | Shawn Mendes | I077 | [Actual individual contribution pending student confirmation] |
 
 ### Abstract
@@ -221,7 +221,18 @@ A runnable notebook, source code, configurations, tests, checkpoints, result tab
 
 The complete model's NDCG@10 is higher than DeepCF by 0.0202 on the reported fixed split and training budget. The combined model improves the measured mean ranking score under this budget. The experiment supports a benefit for this implemented fusion on this split, but does not isolate all architectural and parameter-count effects. The useful outcome is a directly implemented coupling mechanism and an auditable comparison, with explicit limits on what the experiment can establish.
 
-### References
+#### Group 4 presentation allocation (planned; not work already completed)
+
+The following roles are assigned for the final presentation and viva. They are not claims about who personally developed the code, ran experiments, or authored the report. Actual individual contributions above must be verified separately.
+
+| Roll | Student | Slides | Assigned viva focus |
+| --- | --- | --- | --- |
+| I002 | Dhruva Ambhaikar | 1–3 | Introduction, motivation, research problem and research gap |
+| I012 | Viraj Choudhary | 4–7 | Original CoupledCF framework, coupling equations, architecture and PyTorch implementation |
+| I069 | Rusheel Sharma | 8–12 | MovieLens 1M data, splits, negative sampling, baselines, evaluation and compute |
+| I077 | Shawn Mendes | 13–16 | Published comparison, interpretation, ablation findings, limitations and conclusion |
+
+## References
 
 [1] Q. Zhang, L. Wang, X. Meng, K. Xu and J. Hu. A Generic Framework for Learning Explicit and Implicit User-Item Couplings in Recommendation. IEEE Access, vol. 7, pp. 123944-123958, 2019. DOI: 10.1109/ACCESS.2019.2937841. Primary source is the supplied 15-page PDF, whose printed pagination is preserved in the analysis.
 
