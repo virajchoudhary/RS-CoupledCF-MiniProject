@@ -7,11 +7,22 @@ This is a technical-completion handoff for the **Research Paper Study and Partia
 | Student | Roll number |
 | --- | --- |
 | Dhruva Ambhaikar | I002 |
-| Rusheel Sharma | I069 |
 | Viraj Choudhary | I012 |
+| Rusheel Sharma | I069 |
 | Shawn Mendes | I077 |
 
 Course: Recommendation Systems. Group: 4. Institution: SVKM's NMIMS MPSTME, Mumbai.
+
+## Assigned viva responsibilities (not proof of work completed)
+
+| Roll | Student | Slides | Preparation ownership |
+| --- | --- | --- | --- |
+| I002 | Dhruva Ambhaikar | 1–3 | Motivation, problem and gap |
+| I012 | Viraj Choudhary | 4–7 | Architecture, equations, implementation |
+| I069 | Rusheel Sharma | 8–12 | Data, training, metrics and experiments |
+| I077 | Shawn Mendes | 13–16 | Published comparison, ablations, limitations and conclusion |
+
+For speaker notes, likely questions, mathematical explanations, and a complete rehearsal runbook, read [GROUP4_VIVA_PLAYBOOK.md](GROUP4_VIVA_PLAYBOOK.md).
 
 ## Only human-dependent tasks
 
@@ -25,14 +36,16 @@ The original local workspace is required: it holds the officially downloaded Mov
 
 1. Pull the finalized repository changes into that workspace (preserve local `data/` and `results/main/*/best.pt`).
 2. Confirm individual contributions in `configs/student.json`.
-3. With the project's Python environment and Codex presentation runtime active, execute:
+3. With the project's Python environment and Codex presentation runtime active, first regenerate a **non-submittable preview** while contributions remain unconfirmed, then perform the final build only after genuine contributions are recorded:
 
 ```powershell
 .venv\Scripts\python.exe scripts\final_preflight.py --roster-only
+.venv\Scripts\python.exe scripts\finalize_submission.py --preview
+# AFTER confirming actual contributions, run:
 .venv\Scripts\python.exe scripts\finalize_submission.py
 ```
 
-The second command runs Python tests, re-verifies actual experiments, rebuilds the research support docs, report, notebook and PowerPoint, executes notebook checks, cross-checks PDF/PPTX metrics, reruns the submission verifier, validates student attribution in exports, and rebuilds `deliverables/submission.zip`. It **does not retrain** or replace the reported experiment results.
+The preview mode rebuilds research support docs, report, notebook and presentation, checks experimental evidence and tests, but deliberately does not produce a supposedly final ZIP. The final mode additionally verifies authenticated contributions in the report, checks slide roles and metrics, and rebuilds `deliverables/submission.zip`. Neither mode retrains the 15 model runs. Neither mode replaces the reported experiment results.
 
 Do not manually bypass the final preflight or copy the previous placeholder-bearing PDF, deck, or ZIP into a hand-in. If the automated finalization stops, report the exact failure and fix its cause rather than claiming PASS.
 
