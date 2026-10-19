@@ -1,0 +1,9 @@
+{
+  "course": "Recommendation Systems",
+  "institution": "[Institution]",
+  "group": "[Group number]",
+  "students": [
+    {"name": "[Student name]", "roll_number": "[Roll number]", "contribution": "[Describe actual individual contribution]"},
+    {"name": "[Student name]", "roll_number": "[Roll number]", "contribution": "[Describe actual individual contribution]"}
+  ]
+}

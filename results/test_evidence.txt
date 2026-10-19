@@ -1,0 +1,10 @@
+Scientific suite command: .venv\Scripts\python.exe -m pytest -q
+The suite below ran before the single CUDA-unavailability case was added.
+................................                                         [100%]
+32 passed in 15.12s
+
+Additional case command: .venv\Scripts\python.exe -m pytest tests\test_engine.py::test_unavailable_cuda_fails_instead_of_switching_to_cpu -q
+.                                                                        [100%]
+1 passed in 9.24s
+
+Total distinct verified test cases: 33. The four engine checks are included in the 32-case suite and are not added again.

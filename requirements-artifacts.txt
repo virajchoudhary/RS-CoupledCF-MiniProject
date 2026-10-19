@@ -1,0 +1,3 @@
+# PDF/source inspection helpers. Training and result plotting use requirements.txt.
+reportlab>=4,<5
+pypdf>=5,<7

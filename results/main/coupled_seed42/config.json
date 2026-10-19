@@ -1,0 +1,19 @@
+{
+  "model": {
+    "variant": "coupled",
+    "id_dim": 32,
+    "side_dim": 8,
+    "hidden_dim": 64,
+    "channels": 8,
+    "dropout": 0.5
+  },
+  "training": {
+    "epochs": 10,
+    "batch_size": 4096,
+    "learning_rate": 0.001,
+    "negatives": 4,
+    "threads": 2,
+    "device": "cpu"
+  },
+  "seed": 42
+}

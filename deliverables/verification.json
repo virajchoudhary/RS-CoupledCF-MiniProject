@@ -1,0 +1,335 @@
+{
+  "data": {
+    "users": 6040,
+    "items": 3883,
+    "train_positives": 988129,
+    "validation_positives": 6040,
+    "test_positives": 6040,
+    "candidates_per_user": 100,
+    "leakage_checks": "PASS"
+  },
+  "runs": [
+    {
+      "name": "deepcf_seed42",
+      "status": "PASS",
+      "selected_epoch": 10,
+      "test": {
+        "HR@5": 0.6286423841059603,
+        "NDCG@5": 0.4498213266950658,
+        "HR@10": 0.7807947019867549,
+        "NDCG@10": 0.49899713505130694,
+        "HR@20": 0.8961920529801325,
+        "NDCG@20": 0.5283608073091433
+      },
+      "parameters": 319841,
+      "wall_seconds": 139.98416199999974,
+      "sampled_peak_rss_mb": 755.0234375,
+      "result_sha256": "452aa80ba22fbb6a740dd27aa0bd73af3cac3e5f872a2696c62049938a23a8a6",
+      "checkpoint_sha256": "c5cb97ed23e0a1d83d50ed505c6df44eedf829b16615e09d6b82548fad6095b4",
+      "ranks_sha256": "fb8d3842a061b2c1365f8911f03ef1e06fe3b26dc3093e48df87ebcafb55339c",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "local_seed42",
+      "status": "PASS",
+      "selected_epoch": 10,
+      "test": {
+        "HR@5": 0.2609271523178808,
+        "NDCG@5": 0.17516305338429744,
+        "HR@10": 0.39056291390728476,
+        "NDCG@10": 0.2169916360243376,
+        "HR@20": 0.529635761589404,
+        "NDCG@20": 0.25202076068099
+      },
+      "parameters": 33113,
+      "wall_seconds": 507.1301162999998,
+      "sampled_peak_rss_mb": 786.953125,
+      "result_sha256": "c44a144b02d1abcf20c46a453885bdcf5c0fff95710f1ec7448a02c7e6707227",
+      "checkpoint_sha256": "28906cc5a3c6f9f9eb19042d28ff205c757010ecd7faa32ac7b0e0c3896a01bd",
+      "ranks_sha256": "79dd324c187dc707010f7272e04c27a7171204b7f9a828766c5296398d4d7c46",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "global_seed42",
+      "status": "PASS",
+      "selected_epoch": 10,
+      "test": {
+        "HR@5": 0.26125827814569536,
+        "NDCG@5": 0.17338892861930458,
+        "HR@10": 0.3937086092715232,
+        "NDCG@10": 0.21622613101066973,
+        "HR@20": 0.5379139072847682,
+        "NDCG@20": 0.2526648233596261
+      },
+      "parameters": 32521,
+      "wall_seconds": 236.20742289999998,
+      "sampled_peak_rss_mb": 800.1015625,
+      "result_sha256": "19eed22fdede5f9869145c379bd2937bceb9ea7864c2fbd682d5d1da73a5b35e",
+      "checkpoint_sha256": "23ee36c5ed85db41fad40b0da70d7f108fa0cc8deaef23a9fff9280fb41f3a24",
+      "ranks_sha256": "2706b8a583f56cee4a3f3bf561c901b8f85233cb99bf5f6041f10bc1f164a34b",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "coupled_local_seed42",
+      "status": "PASS",
+      "selected_epoch": 10,
+      "test": {
+        "HR@5": 0.640728476821192,
+        "NDCG@5": 0.46659791762818664,
+        "HR@10": 0.7890728476821192,
+        "NDCG@10": 0.5147201042822419,
+        "HR@20": 0.8963576158940397,
+        "NDCG@20": 0.5420523232046957
+      },
+      "parameters": 361273,
+      "wall_seconds": 903.6096876000001,
+      "sampled_peak_rss_mb": 831.85546875,
+      "result_sha256": "8bda58c8ea1090d8bd0a785a11a0025b12df765d9409bc092722e09ff25c7494",
+      "checkpoint_sha256": "d086cf0e0bc8f323d242e44ca32a6c65d6cda29d61a97049ea7d990c6b223f24",
+      "ranks_sha256": "aa7fc5257a50ea8eb2a535acf5104de5128da1eb42938c8105c15b2186326185",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "coupled_seed42",
+      "status": "PASS",
+      "selected_epoch": 10,
+      "test": {
+        "HR@5": 0.6480132450331125,
+        "NDCG@5": 0.46962802966016437,
+        "HR@10": 0.7908940397350993,
+        "NDCG@10": 0.5160375194216331,
+        "HR@20": 0.9003311258278146,
+        "NDCG@20": 0.5439752900778295
+      },
+      "parameters": 365369,
+      "wall_seconds": 892.4815516000008,
+      "sampled_peak_rss_mb": 839.03515625,
+      "result_sha256": "bc9928ca313dcc9a245fbcec5bfe232531e52689ee6637465817c08e5759fdec",
+      "checkpoint_sha256": "da85f932bfc78044c2d637a4c2539c1958ddad92878e46dd0213bec9e0135113",
+      "ranks_sha256": "fb19f55bfa8afe189c5ca2e546d2673f4897fbea90ab6338ec0ed13b7fed9b12",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "deepcf_seed43",
+      "status": "PASS",
+      "selected_epoch": 10,
+      "test": {
+        "HR@5": 0.6251655629139072,
+        "NDCG@5": 0.4540759096681366,
+        "HR@10": 0.7817880794701987,
+        "NDCG@10": 0.5051432144788258,
+        "HR@20": 0.8932119205298014,
+        "NDCG@20": 0.5335702481139448
+      },
+      "parameters": 319841,
+      "wall_seconds": 201.45483260000037,
+      "sampled_peak_rss_mb": 746.515625,
+      "result_sha256": "8b7679c7380aafa2696353a3a3db7063b38bcd548cee6f5b3e7b851435539cfa",
+      "checkpoint_sha256": "b99e8e3f2045d39129f4dbbfd2e82335c393c4597e61c64e48917b52a0cd97ce",
+      "ranks_sha256": "bc7e5c91ff1de9a1abebaf815c54edab9ca920d571fbec7e7c57cdc4ef4bae14",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "local_seed43",
+      "status": "PASS",
+      "selected_epoch": 8,
+      "test": {
+        "HR@5": 0.24917218543046357,
+        "NDCG@5": 0.16957098771152979,
+        "HR@10": 0.37268211920529803,
+        "NDCG@10": 0.20942010741640318,
+        "HR@20": 0.5316225165562913,
+        "NDCG@20": 0.24942329262136284
+      },
+      "parameters": 33113,
+      "wall_seconds": 608.3343625999996,
+      "sampled_peak_rss_mb": 801.6171875,
+      "result_sha256": "911769c5159bf15b89bef711b8da86547a3945ec40d07c510c1e20f8a34db8f6",
+      "checkpoint_sha256": "4cacab92c3e195960160a9352508419429d8c7ea9e19c5a9630cf0457055dc33",
+      "ranks_sha256": "ccb0c6fa40bc5c07ec954fc0003727f79675c98ec86bcced99487d986ff2fa58",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "global_seed43",
+      "status": "PASS",
+      "selected_epoch": 10,
+      "test": {
+        "HR@5": 0.2619205298013245,
+        "NDCG@5": 0.1725543715253384,
+        "HR@10": 0.39006622516556294,
+        "NDCG@10": 0.21383513526037684,
+        "HR@20": 0.5364238410596026,
+        "NDCG@20": 0.25081872518671183
+      },
+      "parameters": 32521,
+      "wall_seconds": 300.2330718000003,
+      "sampled_peak_rss_mb": 801.78515625,
+      "result_sha256": "306e7a26976a29c84433d2c1bc8ef4ffe017ae7c23ca12152e128c6f2e5fa457",
+      "checkpoint_sha256": "969b8cf1fb3763d2ed48599c2f1d0d78e991f8cb2bc6ff110c5b1fbf170e4f47",
+      "ranks_sha256": "fe7e83676134494ca47bae225dd85ed32603418fba74860bab2bd54f59ba889e",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "coupled_local_seed43",
+      "status": "PASS",
+      "selected_epoch": 10,
+      "test": {
+        "HR@5": 0.6543046357615894,
+        "NDCG@5": 0.48362876064442367,
+        "HR@10": 0.802317880794702,
+        "NDCG@10": 0.5316673110218271,
+        "HR@20": 0.9057947019867549,
+        "NDCG@20": 0.5580653540225065
+      },
+      "parameters": 361273,
+      "wall_seconds": 809.4807038999998,
+      "sampled_peak_rss_mb": 836.98046875,
+      "result_sha256": "e8e1c8b5dea8817d96fcd359efc0e863b191ee4bb27445cc5870e37898746c19",
+      "checkpoint_sha256": "6b1113f7898d910eed22b269ac05dfc7cbc34ed59ed82561504b2c0efb5b2d7e",
+      "ranks_sha256": "615ae6ddd7ff3b93a378e1b663954751464b1a44b6321defa83e6b6d3e051b9e",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "coupled_seed43",
+      "status": "PASS",
+      "selected_epoch": 9,
+      "test": {
+        "HR@5": 0.6443708609271523,
+        "NDCG@5": 0.46921476970001097,
+        "HR@10": 0.7922185430463576,
+        "NDCG@10": 0.5172267716570627,
+        "HR@20": 0.902317880794702,
+        "NDCG@20": 0.5451289016048131
+      },
+      "parameters": 365369,
+      "wall_seconds": 748.9569110000002,
+      "sampled_peak_rss_mb": 837.78125,
+      "result_sha256": "0793b3ed70e5d5fd857faad1c9998279034b39233d101d1748970886d87ccc48",
+      "checkpoint_sha256": "778315c2dec5bf7ba82b9eb17010a186007b6909e1b0882fd142f9b13dd51340",
+      "ranks_sha256": "62a158a8d8d43f166e426be42b7b5f77abd6a52271126e95e72b32c1415b9bce",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "deepcf_seed44",
+      "status": "PASS",
+      "selected_epoch": 9,
+      "test": {
+        "HR@5": 0.633112582781457,
+        "NDCG@5": 0.4528469794710446,
+        "HR@10": 0.784933774834437,
+        "NDCG@10": 0.5023203413348912,
+        "HR@20": 0.8981788079470199,
+        "NDCG@20": 0.5311911022670981
+      },
+      "parameters": 319841,
+      "wall_seconds": 144.4340542,
+      "sampled_peak_rss_mb": 753.4609375,
+      "result_sha256": "7477a4cc854e9c8d3ebb9928db6530519f50f862221013009779e06dfb92eff9",
+      "checkpoint_sha256": "efd5894070c7b73d078104f4917e94db7bbe4f79fda1b2260b6d855b826455c2",
+      "ranks_sha256": "43485ce670c2bc06eef22b323a64bf4ad5e090266794c9c357314a14f6d58fba",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "local_seed44",
+      "status": "PASS",
+      "selected_epoch": 9,
+      "test": {
+        "HR@5": 0.2627483443708609,
+        "NDCG@5": 0.17545734205100944,
+        "HR@10": 0.3890728476821192,
+        "NDCG@10": 0.21608292554293326,
+        "HR@20": 0.5384105960264901,
+        "NDCG@20": 0.25363474413249565
+      },
+      "parameters": 33113,
+      "wall_seconds": 513.9762035000003,
+      "sampled_peak_rss_mb": 803.56640625,
+      "result_sha256": "9d6dfc57b1295d1ca485d6ab414b89109d358b1363f1d47a005db957e73ec5be",
+      "checkpoint_sha256": "32d6660a5238be2c401bc1d7765430f1912b90dae82733685a34daf867bb204c",
+      "ranks_sha256": "106ccf8223ae9980814821fb2433e3707373238b014394d1f2e8d75040da7be6",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "global_seed44",
+      "status": "PASS",
+      "selected_epoch": 8,
+      "test": {
+        "HR@5": 0.2587748344370861,
+        "NDCG@5": 0.17210815501143786,
+        "HR@10": 0.3935430463576159,
+        "NDCG@10": 0.21535820971259367,
+        "HR@20": 0.53658940397351,
+        "NDCG@20": 0.25131039852377846
+      },
+      "parameters": 32521,
+      "wall_seconds": 218.3191752999992,
+      "sampled_peak_rss_mb": 797.734375,
+      "result_sha256": "32bf068fc833afccf48df693c2b16c5713a5c0e107d0b44bb2fba2231585ca5e",
+      "checkpoint_sha256": "163d81920a1a952ca652e1ea60258a79905049544d322148cb38901baabd4561",
+      "ranks_sha256": "0b53d6d271692db1aa020ae617310b81ccba589a0831db4e047388e64f0e4216",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "coupled_local_seed44",
+      "status": "PASS",
+      "selected_epoch": 10,
+      "test": {
+        "HR@5": 0.6425496688741722,
+        "NDCG@5": 0.46749411056992474,
+        "HR@10": 0.78658940397351,
+        "NDCG@10": 0.5143702619811692,
+        "HR@20": 0.8996688741721854,
+        "NDCG@20": 0.5430786689866427
+      },
+      "parameters": 361273,
+      "wall_seconds": 594.1614537999994,
+      "sampled_peak_rss_mb": 829.3984375,
+      "result_sha256": "783373e50fb637d01b728a36a92d673d27a85668b7e0fdfa521eb51bdbb17a89",
+      "checkpoint_sha256": "514a68f55bea8043d978a7d83c486b1553a42264a607e75cf845156894bc5971",
+      "ranks_sha256": "2e1a127369c64b7a59c2ce929b638c3a13103be1aa443dacc0d86f34860e75d6",
+      "prediction_replay": "reused matching verified bytes"
+    },
+    {
+      "name": "coupled_seed44",
+      "status": "PASS",
+      "selected_epoch": 10,
+      "test": {
+        "HR@5": 0.6498344370860927,
+        "NDCG@5": 0.4858160268732043,
+        "HR@10": 0.7978476821192053,
+        "NDCG@10": 0.5338103153822622,
+        "HR@20": 0.9122516556291391,
+        "NDCG@20": 0.5629999526608386
+      },
+      "parameters": 365369,
+      "wall_seconds": 618.9167369000006,
+      "sampled_peak_rss_mb": 842.66796875,
+      "result_sha256": "c91a8b106684820d8360e92b53aacd3a8f2841d7ab29a0314dc016bda4ef2f94",
+      "checkpoint_sha256": "26bac33a648bd7a799c3ccfead34d62521dcf4e780af50b81b1ab5bb878c01c6",
+      "ranks_sha256": "a9269a7b21acbc4ec54e71e2fa6fdefa97820f519b00406bc47ba021b2271778",
+      "prediction_replay": "reused matching verified bytes"
+    }
+  ],
+  "split_sha256": "4a7c4698919eb6cf0d27a087a21f20e3342db85f300c83e6a9eaf27160935834",
+  "study_config_sha256": "224b28746a6f0f88997e56d0ab0ca174d8c4455fa0096a71f74c48db67d00dda",
+  "verification_script_sha256": "c83b45dec451333e389b0ebaebcdc83878d05eeca7adfbc15ce4373ed5916565",
+  "evaluation_source_sha256": {
+    "models.py": "ad54fcc9da41e4e8aad47b087cee2d73fb49b19cd266738a81b5dba3933c31de",
+    "metrics.py": "45f32d0ddf554f544ed1dfb0abd2a29542fa14b36a39c1ac4793e6398cb6b9c6",
+    "engine.py": "d0053e8240196b7b963cc9367ca3e57e245058bec02cdcdcbab5802158271545",
+    "data.py": "43b7da0ccdb1ab46ac04790c42690c3c366860fffe403483dd09bc4032770cf1"
+  },
+  "summary": "PASS all ranking and cost means/sample standard deviations, counts and parameters",
+  "deliverables": {
+    "status": "PASS",
+    "required_files": 16,
+    "executed_notebook_cells": 6,
+    "slides": 16
+  },
+  "status": "PASS",
+  "limitations": [
+    "Student identity and actual individual contributions need human completion",
+    "CUDA execution was not tested; all reported experiments used CPU",
+    "Partial reproduction with disclosed architecture and protocol adaptations"
+  ]
+}

@@ -1,0 +1,14 @@
+.venv/
+.cache/
+__pycache__/
+.pytest_cache/
+.audit/
+.chart-data-*/
+data/raw/
+data/processed/
+results/**/*.pt
+tmp/
+.ipynb_checkpoints/
+*.py[cod]
+.env
+.env.*

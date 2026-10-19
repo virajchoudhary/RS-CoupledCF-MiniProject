@@ -1,0 +1,13 @@
+comparison,first,second,seed,delta_HR@10,delta_NDCG@10
+add explicit local and global,coupled,deepcf,42,0.010099337748344372,0.017040384370326178
+add explicit local and global,coupled,deepcf,43,0.010430463576158955,0.012083557178236837
+add explicit local and global,coupled,deepcf,44,0.012913907284768267,0.03148997404737097
+add global to local plus implicit,coupled,coupled_local,42,0.0018211920529801473,0.0013174151393912092
+add global to local plus implicit,coupled,coupled_local,43,-0.010099337748344372,-0.014440539364764415
+add global to local plus implicit,coupled,coupled_local,44,0.011258278145695355,0.019440053401093005
+add local to implicit,coupled_local,deepcf,42,0.008278145695364225,0.01572296923093497
+add local to implicit,coupled_local,deepcf,43,0.020529801324503327,0.026524096543001252
+add local to implicit,coupled_local,deepcf,44,0.0016556291390729116,0.012049920646277967
+local-only versus global-only,local,global,42,-0.003145695364238421,0.000765505013667872
+local-only versus global-only,local,global,43,-0.017384105960264906,-0.004415027843973657
+local-only versus global-only,local,global,44,-0.004470198675496695,0.0007247158303395895

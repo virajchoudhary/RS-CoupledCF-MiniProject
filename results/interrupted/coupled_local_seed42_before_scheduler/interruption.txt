@@ -1,0 +1,1 @@
+INTERRUPTED by the root after epoch 1 to change scheduling. Excluded from all scientific results. Three earlier completed runs were preserved. Fresh run uses the same seed and frozen model/training settings.

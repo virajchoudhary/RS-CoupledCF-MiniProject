@@ -1,0 +1,183 @@
+=== PDF PAGE 1 ===
+              Research Paper Study and Partial Reproduction:
+                                 Recommendation Systems
+
+Each group will be assigned a recent research paper related to Recommendation Systems.
+The group is expected to:
+
+    1.  Read and understand the assigned research paper.
+    2.  Identify the research problem, motivation and research gap.
+    3.  Understand and explain the proposed recommendation technique.
+    4.  Select one core technique/component from the paper.
+    5.  Implement the selected technique.
+    6.  Conduct experiments using the dataset used in the paper, wherever practically
+        feasible.
+    7.  Compare the implementation with an appropriate baseline.
+    8.  Critically analyze the results, limitations and applicability of the proposed approach.
+
+Objectives
+
+By completing this assignment, students will be able to:
+
+    1.  Analyze recent research literature in the field of recommendation systems.
+    2.  Identify the problem, research gap, objectives and contributions of a research paper.
+    3.  Explain the architecture and working principle of a modern recommendation
+        technique.
+    4.  Implement a selected component/technique from a published research paper.
+    5.  Evaluate the implementation using appropriate datasets, metrics and baselines.
+    6.  Critically discuss the strengths, limitations, assumptions and possible extensions of
+        the proposed approach.
+
+Tasks
+
+Part A – Research Paper Understanding
+
+A1. Problem Definition
+
+    •   What recommendation problem is being addressed?
+    •   Is it:
+             o   rating prediction?
+             o   Top-N recommendation?
+             o   sequential recommendation?
+             o   multimodal recommendation?
+             o   personalized recommendation?
+             o   cold-start recommendation?
+             o   explainable recommendation?
+
+A2. Motivation
+
+Why is the problem important?
+
+=== PDF PAGE 2 ===
+A3. Research Gap
+
+What limitations of existing methods does the paper attempt to address?
+
+A4. Contributions
+
+Identify major contributions claimed by the authors.
+
+
+
+Part B – Methodology Analysis
+
+1. Input
+
+What information enters the model?
+
+For example:
+
+User ID + Item ID + Review Text + Image
+
+2. Processing
+
+Show the important steps:
+
+Input → Feature Extraction → Representation → Interaction → Prediction
+
+3. Output
+
+What does the model finally predict?
+
+For example:
+
+Rating / Top-K items / Probability / Ranking score
+
+
+
+Part C – Select One Technique for Implementation
+
+Select and implement one technically meaningful component of the assigned paper.
+
+Minimum requirements
+
+The selected component should:
+
+    •   be clearly identifiable in the paper;
+    •   contribute to the recommendation process;
+    •   be implemented in the paper rather than merely calling a complete existing
+        implementation;
+    •   be experimentally evaluated.
+
+=== PDF PAGE 3 ===
+Require a Baseline
+
+The assignment can state:
+
+At least one baseline is mandatory.
+
+Dataset Requirement
+    •    Use the same dataset used in the assigned paper.
+    •    If the exact dataset is publicly available and computationally feasible.
+    •    If not feasible
+    •    an officially available subset of the same dataset
+    •    or
+    •    an alternative dataset approved by me with similar characteristics.
+
+
+Ablation/Analysis Component
+Add a small ablation study based on the paper
+
+Critical Evaluation
+    •    Strengths
+             o    What does the proposed method do well?
+    •    Limitations
+             o    What are its limitations?
+    •    Computational requirements
+
+         •   Training time
+         •   GPU requirement
+         •   Number of parameters
+         •   Memory requirements, if relevant
+
+Data requirements
+
+    •    Does the method require:
+             o    reviews?
+             o    images?
+             o    user history?
+             o    side information?
+
+Generalizability
+
+Would the approach work in another recommendation scenario?
+
+Reproducibility
+
+Could another researcher reproduce the reported results from the information/code provided?
+
+Possible improvement
+
+=== PDF PAGE 4 ===
+Suggest one meaningful improvement.
+
+10-Mark Rubric
+
+
+
+                                           Component                                  Marks
+                1. Paper understanding & research problem                             1.5
+                2. Methodology/algorithm analysis                                     1.5
+                3. Implementation of selected technique                               2.5
+                4. Experimental evaluation & comparison                               2.0
+                5. Critical analysis & proposed improvement                           1.5
+                6. Report quality, presentation & individual contribution             1.0
+                Total                                                                 10
+
+Submission Guidelines
+
+    A.  Part A and Part B
+    B.  Source Code
+
+        Submit:
+
+        •    Python code
+        •    Jupyter notebook / .py files
+        •    requirements.txt
+        •    README
+
+    C.  Results
+    D.  Presentation and Viva
+
+
+

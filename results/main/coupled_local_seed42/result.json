@@ -1,0 +1,58 @@
+{
+  "status": "COMPLETE",
+  "variant": "coupled_local",
+  "seed": 42,
+  "selected_epoch": 10,
+  "completed_epochs": 10,
+  "validation": {
+    "HR@5": 0.6379139072847683,
+    "NDCG@5": 0.46601515934297255,
+    "HR@10": 0.7875827814569536,
+    "NDCG@10": 0.5148521013362789,
+    "HR@20": 0.898841059602649,
+    "NDCG@20": 0.5432379837739519
+  },
+  "test": {
+    "HR@5": 0.640728476821192,
+    "NDCG@5": 0.46659791762818664,
+    "HR@10": 0.7890728476821192,
+    "NDCG@10": 0.5147201042822419,
+    "HR@20": 0.8963576158940397,
+    "NDCG@20": 0.5420523232046957
+  },
+  "parameters": 361273,
+  "wall_seconds": 903.6096876000001,
+  "cpu_seconds": 1699.65625,
+  "sampled_peak_rss_mb": 831.85546875,
+  "cuda_peak_allocated_mb": null,
+  "split_sha256": "4a7c4698919eb6cf0d27a087a21f20e3342db85f300c83e6a9eaf27160935834",
+  "checkpoint_sha256": "d086cf0e0bc8f323d242e44ca32a6c65d6cda29d61a97049ea7d990c6b223f24",
+  "config_sha256": "babee07ceb8c0f1f6be08430d1125effa608f5469213d484b80976f82377dad9",
+  "software": {
+    "python": "3.13.4",
+    "torch": "2.11.0+cpu",
+    "numpy": "2.2.6",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "logical_cpus": 12
+  },
+  "config": {
+    "model": {
+      "variant": "coupled_local",
+      "id_dim": 32,
+      "side_dim": 8,
+      "hidden_dim": 64,
+      "channels": 8,
+      "dropout": 0.5
+    },
+    "training": {
+      "epochs": 10,
+      "batch_size": 4096,
+      "learning_rate": 0.001,
+      "negatives": 4,
+      "threads": 2,
+      "device": "cpu"
+    },
+    "seed": 42
+  }
+}

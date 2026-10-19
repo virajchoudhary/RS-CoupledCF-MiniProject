@@ -1,0 +1,8 @@
+# Preserve experiment source hashes and exported files across platforms.
+* -text
+*.pdf binary
+*.pptx binary
+*.zip binary
+*.png binary
+*.npz binary
+*.npy binary
