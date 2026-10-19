@@ -108,7 +108,7 @@ def main():
         ('S1', 'Python code requirements and README', 'src/; scripts/; requirements.txt; README.md'),
         ('S2', 'Jupyter notebook or Python files', 'source and executed CoupledCF_reproduction notebooks'),
         ('S3', 'Real measured results', 'results/main/; summary.csv; runs.csv; figures/'),
-        ('S4', 'Presentation and viva', 'deliverables/CoupledCF_presentation.pptx; docs/viva_questions.md'),
+        ('S4', 'Presentation and viva', 'deliverables/CoupledCF_presentation.pptx; docs/viva_questions.md; docs/GROUP4_VIVA_PLAYBOOK.md; docs/VIVA_LAST_MINUTE.md'),
         ('U1', 'Read both PDFs including equations tables and diagrams', 'paper_analysis source page references; sources/assignment.txt; rendered source inspection'),
         ('U2', 'Explicit implicit local/global DeepCF and full architecture', 'paper_analysis; methodology; implemented variants'),
         ('U3', 'Deterministic encoding sampling split and leakage checks', 'data.py; manifest.json; tests/test_data.py'),
@@ -130,7 +130,7 @@ def main():
              'CNN layers. The assignment requests a partial reproduction, and these boundaries are visible '
              'in the report and presentation.\n\nGroup 4 names and roll numbers are now populated; actual contributions '
              'and regenerated final exports remain pending human confirmation. The official RS.xlsx lists '
-             'Dhruva Ambhaikar (I002), Rusheel Sharma (I069), Viraj Choudhary (I012), and Shawn Mendes (I077).\n')
+             'Dhruva Ambhaikar (I002), Viraj Choudhary (I012), Rusheel Sharma (I069), and Shawn Mendes (I077).\n')
     (ROOT / 'docs/requirements_checklist.md').write_text(text, encoding='utf-8')
     print('Generated viva and final requirement mapping')
 

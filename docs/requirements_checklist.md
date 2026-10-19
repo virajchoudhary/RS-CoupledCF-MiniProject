@@ -31,7 +31,7 @@ Coverage statuses describe verified project evidence, not marks awarded by the p
 | S1 | Python code requirements and README | src/; scripts/; requirements.txt; README.md | PASS |
 | S2 | Jupyter notebook or Python files | source and executed CoupledCF_reproduction notebooks | PASS |
 | S3 | Real measured results | results/main/; summary.csv; runs.csv; figures/ | PASS |
-| S4 | Presentation and viva | deliverables/CoupledCF_presentation.pptx; docs/viva_questions.md | PASS |
+| S4 | Presentation and viva | deliverables/CoupledCF_presentation.pptx; docs/viva_questions.md; docs/GROUP4_VIVA_PLAYBOOK.md; docs/VIVA_LAST_MINUTE.md | PASS |
 | U1 | Read both PDFs including equations tables and diagrams | paper_analysis source page references; sources/assignment.txt; rendered source inspection | PASS |
 | U2 | Explicit implicit local/global DeepCF and full architecture | paper_analysis; methodology; implemented variants | PASS |
 | U3 | Deterministic encoding sampling split and leakage checks | data.py; manifest.json; tests/test_data.py | PASS |
@@ -47,4 +47,4 @@ Coverage statuses describe verified project evidence, not marks awarded by the p
 
 CUDA execution is unverified, so U4 covers a working CPU pipeline and the CUDA code path, not demonstrated GPU results. The review/Doc2Vec path, rating prediction and other datasets are analyzed rather than reproduced. A single convolution replaces the paper's stated two CNN layers. The assignment requests a partial reproduction, and these boundaries are visible in the report and presentation.
 
-Group 4 names and roll numbers are populated in configs/student.json from the official RS.xlsx allocation: Dhruva Ambhaikar (I002), Rusheel Sharma (I069), Viraj Choudhary (I012), and Shawn Mendes (I077). Actual individual contributions and refreshed final PDF/PPTX/ZIP remain PENDING until the students confirm their work.
+Group 4 names and roll numbers are populated in configs/student.json from the official RS.xlsx allocation: Dhruva Ambhaikar (I002), Viraj Choudhary (I012), Rusheel Sharma (I069), and Shawn Mendes (I077). Actual individual contributions and refreshed final PDF/PPTX/ZIP remain PENDING until the students confirm their work.

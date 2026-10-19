@@ -117,8 +117,10 @@ def main():
     markdown.append('# CoupledCF on MovieLens 1M\n')
     p('Research Paper Study and Partial Reproduction')
     p(student['course'] + '. ' + student['institution'] + '. ' + student['group'] + '.')
+    members = sorted(student['students'], key=lambda person: person['roll_number'])
     table(['Student', 'Roll number', 'Actual contribution'],
-          [[s['name'], s['roll_number'], s['contribution']] for s in student['students']], [115, 90, 255])
+          [[person['name'], person['roll_number'], person['contribution']]
+           for person in members], [115, 90, 255])
     heading('Abstract', 2)
     p('This project studies the attribute-based Top-N recommendation mechanism of Zhang et al. [1]. '
       'It implements a convolution over explicit user-item feature interactions, an implicit DeepCF baseline, '
@@ -472,6 +474,15 @@ def main():
       'reported fixed split and training budget. ' + interpretation + ' The useful outcome is '
       'a directly implemented coupling mechanism and an auditable comparison, with explicit '
       'limits on what the experiment can establish.')
+    heading('Group 4 presentation allocation (planned; not work already completed)', 2)
+    p('The following roles are assigned for the final presentation and viva. They are '
+      'separate from the actual individual contribution statements on the cover, which '
+      'must describe work the students really performed or reviewed.')
+    table(['Roll', 'Student', 'Slides', 'Assigned viva focus'],
+          [[person['roll_number'], person['name'], person['presentation_slides'],
+            person['presentation_responsibility']] for person in members],
+          [50, 125, 48, 237])
+
     heading('References', 2)
     p('[1] Q. Zhang, L. Wang, X. Meng, K. Xu and J. Hu. A Generic Framework for Learning '
       'Explicit and Implicit User-Item Couplings in Recommendation. IEEE Access, vol. 7, '
@@ -498,7 +509,7 @@ def main():
 
     document = SimpleDocTemplate(str(OUT / 'final_report.pdf'), pagesize=(595.28, 841.89),
                                  leftMargin=48, rightMargin=48, topMargin=45, bottomMargin=48,
-                                 title='CoupledCF on MovieLens 1M', author='Student identities to be completed')
+                                 title='CoupledCF on MovieLens 1M', author='Group 4 - Recommendation Systems')
     document.build(story, onFirstPage=footer, onLaterPages=footer)
     print('Generated docs/final_report.md and deliverables/final_report.pdf')
 

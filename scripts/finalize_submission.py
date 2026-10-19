@@ -28,14 +28,18 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Verify and regenerate the Group 4 hand-in")
     parser.add_argument("--skip-tests", action="store_true",
                         help="Skip pytest only; experimental and artifact verification still run")
+    parser.add_argument("--preview", action="store_true",
+                        help="Regenerate report, slides and evidence before contributions are confirmed; do not package")
     args = parser.parse_args()
     _, members, pending = validate_roster()
-    if pending:
+    if pending and not args.preview:
         raise SystemExit(
             "STOP: the following members must confirm their actual individual contributions "
             "in configs/student.json: " + ", ".join(pending)
         )
-    print("Roster and contribution fields are populated. Students still need to approve their accuracy.")
+    print("Roster is verified and ordered. Planned speaking roles are not claims of completed work.")
+    if pending:
+        print("PREVIEW ONLY: actual individual contributions pending from " + ", ".join(pending))
     if not args.skip_tests:
         run(PYTHON, "-m", "pytest", "-q")
     run(PYTHON, "scripts/verify_submission.py", "--experiments-only")
@@ -48,6 +52,10 @@ def main() -> None:
     run(PYTHON, "scripts/verify_submission.py")
     shutil.copyfile(ROOT / ".audit/verification.json",
                     ROOT / "deliverables/verification.json")
+    if args.preview:
+        print("PREVIEW PASS: regenerated artifacts, but final ZIP is deliberately blocked "
+              "until the students confirm real contributions and approve the exports.")
+        return
     validate_final(ROOT)
     run(PYTHON, "scripts/package_submission.py")
     archive = ROOT / "deliverables/submission.zip"
