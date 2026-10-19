@@ -2,6 +2,7 @@
 .cache/
 __pycache__/
 .pytest_cache/
+.pytest-temp/
 .audit/
 .chart-data-*/
 data/raw/
