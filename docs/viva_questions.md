@@ -122,5 +122,5 @@ Download and verify the official archive, prepare the split, create the document
 
 ## 31. What did each student contribute?
 
-Replace the placeholders in configs/student.json with the actual names, roll numbers and work each person can explain and defend. Do not invent individual contributions or claim experimental work that was not performed.
+Group 4 names and roll numbers are prefilled from the official RS allocation. Each student must confirm their actual contribution in configs/student.json and be able to explain that work. Never invent academic contributions.
 
